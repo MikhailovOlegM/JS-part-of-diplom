@@ -44,10 +44,10 @@
 	</div><!-- end of options -->
             <!-- demo -->
             <div class="jtk-demo-canvas canvas-wide drag-drop-demo jtk-surface jtk-surface-nopan" id="canvas">
-                <div class="window" id="dragDropWindow1">one<br/><br/><a href="#" class="cmdLink hide" rel="dragDropWindow1">toggle connections</a><br/><br/></div>
-                <div class="window" id="dragDropWindow2">two<br/><br/><a href="#" class="cmdLink hide" rel="dragDropWindow2">toggle connections</a><br/><br/></div>
-                <div class="window" id="dragDropWindow3">three<br/><br/><a href="#" class="cmdLink hide" rel="dragDropWindow3">toggle connections</a><br/><br/></div>
-                <div class="window" id="dragDropWindow4">four<br/><br/><a href="#" class="cmdLink hide" rel="dragDropWindow4">toggle connections</a><br/><br/></div>
+                <div class="window" id="dragDropWindow1">one<br/></div>
+                <div class="window" id="dragDropWindow2">two<br/></div>
+                <div class="window" id="dragDropWindow3">three<br/></div>
+                <div class="window" id="dragDropWindow4">four<br/></div>
                 <div id="list"></div>
             </div>
 			
@@ -101,17 +101,12 @@
 		<script src="demo.js"></script>
 		
 		<script> 
-		var aa = 0;
-		if(aa==0){
 		$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow5\">five<br/><br/><a href=\"#\" class=\"cmdLink hide\" rel=\"dragDropWindow1\">toggle connections</a><br/><br/></div>" );
 		console.log(jsPlumb.getSelector("#dragDropWindow5"));
-		aa++;
-		console.log("aa");
-		}
-			
 		</script>
 		
 		<script type="text/javascript">
+		
     $(document).ready(function(){
         //Counter
         counter = 0;
@@ -123,8 +118,16 @@
             //When first dragged
             stop:function(ev, ui) {
             	var pos=$(ui.helper).offset();
-            	objName = "#clonediv"+counter
-            	$(objName).css({"left":pos.left,"top":pos.top});
+				console.log(pos)
+            	objName = "#clonediv"+counter;
+				console.log(jsPlumb.getSelector(objName));
+				
+					var X = ev.pageX; // положения по оси X
+					var Y = ev.pageY; // положения по оси Y
+					console.log("X: " + X + " Y: " + Y); 
+				
+				
+            	$(objName).css({"left":X,"top":Y});
             	$(objName).removeClass("drag");
 
 
@@ -134,8 +137,8 @@
                     stop:function(ev, ui) {
                     	var pos=$(ui.helper).offset();
                     	console.log($(this).attr("id"));
-						console.log(pos.left)
-                        console.log(pos.top)
+						console.log(pos.left);
+                        console.log(pos.top);
                     }
                 });
             }
@@ -146,19 +149,22 @@
 				if (ui.helper.attr('id').search(/drag[0-9]/) != -1){
 					counter++;
 					var element=$(ui.draggable).clone();
+					console.log("element: ", element);
 					element.addClass("tempclass");
+					//$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow6\">six<br/></div>" );
 					$(this).append(element);
 					$(".tempclass").attr("id","clonediv"+counter);
 					$("#clonediv"+counter).removeClass("tempclass");
 
 					//Get the dynamically item id
 					draggedNumber = ui.helper.attr('id').search(/drag([0-9])/)
-					itemDragged = "dragged" + RegExp.$1
+					itemDragged = "dragDropWindow11 window"
 					console.log(itemDragged)
-
+					
 					$("#clonediv"+counter).addClass(itemDragged);
 				}
-        	}
+        	return;
+			}
         });
 
 

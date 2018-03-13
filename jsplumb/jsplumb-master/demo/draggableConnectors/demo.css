@@ -78,6 +78,8 @@
 }
 
 
+.dragDropWindow11 { content:url("monitor.png"); width: 64px; height: 64px;}
+
 /** ELEMENTS **/
 .drag-drop-demo .window {
     font-family: serif;
