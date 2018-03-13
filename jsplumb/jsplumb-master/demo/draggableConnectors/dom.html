@@ -26,7 +26,7 @@
         <a style="margin:10px 0 0 10px;display:inline-block" href="https://jsplumbtoolkit.com"></a>
 		
         <div class="jtk-demo-main">
-		<div id="options" style="height:300px; width: 140px; float: left; padding-left: 5px">
+		<div id="options" style="border: 1px solid #CCC; height: 550px; max-height: 700px; width: 140px; float: left; padding-left: 5px; z-index: 30">
     <div>
       <details>
         <summary>Network Device</summary>
@@ -54,14 +54,7 @@
             <!-- /explanation -->
         </div>
 
-		<script> 
-		$( "#canvas" )
-			.mousedown(function() {
-			$( this ).append( "<div class=\"window\" id=\"dragDropWindow5\">five<br/><br/><a href=\"#\" class=\"cmdLink hide\" rel=\"dragDropWindow1\">toggle connections</a><br/><br/></div>" );
-			});
-		jsPlumb.draggable("#dragDropWindow5");
-			
-		</script>
+		
         <!-- JS -->
         <!-- support lib for bezier stuff -->
         <script src="jsBezier/js/jsbezier.js"></script>
@@ -106,6 +99,72 @@
 
 		<!--  demo code -->
 		<script src="demo.js"></script>
+		
+		<script> 
+		var aa = 0;
+		if(aa==0){
+		$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow5\">five<br/><br/><a href=\"#\" class=\"cmdLink hide\" rel=\"dragDropWindow1\">toggle connections</a><br/><br/></div>" );
+		console.log(jsPlumb.getSelector("#dragDropWindow5"));
+		aa++;
+		console.log("aa");
+		}
+			
+		</script>
+		
+		<script type="text/javascript">
+    $(document).ready(function(){
+        //Counter
+        counter = 0;
+        //Make element draggable
+        $(".drag").draggable({
+            helper:'clone',
+            containment: 'frame',
+
+            //When first dragged
+            stop:function(ev, ui) {
+            	var pos=$(ui.helper).offset();
+            	objName = "#clonediv"+counter
+            	$(objName).css({"left":pos.left,"top":pos.top});
+            	$(objName).removeClass("drag");
+
+
+               	//When an existiung object is dragged
+                $(objName).draggable({
+                	containment: 'parent',
+                    stop:function(ev, ui) {
+                    	var pos=$(ui.helper).offset();
+                    	console.log($(this).attr("id"));
+						console.log(pos.left)
+                        console.log(pos.top)
+                    }
+                });
+            }
+        });
+        //Make element droppable
+        $("#frame").droppable({
+			drop: function(ev, ui) {
+				if (ui.helper.attr('id').search(/drag[0-9]/) != -1){
+					counter++;
+					var element=$(ui.draggable).clone();
+					element.addClass("tempclass");
+					$(this).append(element);
+					$(".tempclass").attr("id","clonediv"+counter);
+					$("#clonediv"+counter).removeClass("tempclass");
+
+					//Get the dynamically item id
+					draggedNumber = ui.helper.attr('id').search(/drag([0-9])/)
+					itemDragged = "dragged" + RegExp.$1
+					console.log(itemDragged)
+
+					$("#clonediv"+counter).addClass(itemDragged);
+				}
+        	}
+        });
+
+
+    });
+
+	</script>
 		
         <script src="../demo-list.js"></script>
     </body>
