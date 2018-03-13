@@ -1,0 +1,19 @@
+{
+    "name": "mottle",
+    "version": "0.8.0",
+    "ignore": [
+        "html",
+        "test",
+        "*.html",
+        "node_modules",
+        "*LICENSE.txt"
+    ],
+    "main": [
+        "js/mottle.js"
+    ],
+    "authors": [
+        "jsPlumb <hello@jsplumbtoolkit.com>"
+    ],
+    "description": "Unified touch/mouse event management",
+    "license": "MIT/GPL2"
+}
