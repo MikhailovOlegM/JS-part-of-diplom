@@ -132,7 +132,7 @@
         this.endpointAdded = function (el, id) {
 
             id = id || _currentInstance.getId(el);
-
+			console.log("endpointAdded", el);
             var b = document.body,
                 p = el.parentNode;
 
@@ -470,6 +470,8 @@
         },
         // CONVERTED
         getSelector: function (ctx, spec) {
+			console.log("ctx", ctx);
+			console.log("spec", spec);
             var sel = null;
             if (arguments.length === 1) {
                 sel = ctx.nodeType != null ? ctx : document.querySelectorAll(ctx);

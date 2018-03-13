@@ -144,6 +144,11 @@
             }
         });
         //Make element droppable
+		 var exampleDropOptions = {
+                tolerance: "touch",
+                hoverClass: "dropHover",
+                activeClass: "dragActive"
+            };
         $("#canvas").droppable({
 			drop: function(ev, ui) {
 				if (ui.helper.attr('id').search(/drag[0-9]/) != -1){
@@ -160,9 +165,26 @@
 					draggedNumber = ui.helper.attr('id').search(/drag([0-9])/)
 					//itemDragged = "dragDropWindow1 window"
 					itemDragged = "dragged" + RegExp.$1 + " window";
+					
 					console.log(itemDragged);
 					
 					$("#clonediv"+counter).addClass(itemDragged);
+					
+					var exampleEndpoint2 = {
+					endpoint: ["Dot", { radius: 11 }],
+					paintStyle: { fill: "#f0f" },
+					isSource: true,
+					scope: "green",
+					connectorStyle: { stroke: "#f0f", strokeWidth: 6 },
+					connector: ["Bezier", { curviness: 63 } ],
+					maxConnections: 2,
+					isTarget: true,
+					dropOptions: exampleDropOptions
+				};	
+				console.log("itemDrugget: ", $(element).attr("class"));
+				console.log("itemDrugget: ", jsPlumb.getSelector($(element).attr("class")));
+
+					jsPlumb.addEndpoint(jsPlumb.getSelector(itemDragged), { anchor: "RightMiddle" }, exampleEndpoint2);
 				}
         	return;
 			}

@@ -89,7 +89,7 @@
             // there is a 'beforeDrop' interceptor on this endpoint which is used to allow the user to decide whether
             // or not to allow a particular connection to be established.
             //
-            var exampleColor = "#0ff";
+            var exampleColor = "#00f";
             var exampleEndpoint = {
                 endpoint: "Rectangle",
                 paintStyle: { width: 25, height: 21, fill: exampleColor },
