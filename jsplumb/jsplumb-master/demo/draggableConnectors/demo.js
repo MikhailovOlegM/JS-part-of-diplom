@@ -23,6 +23,7 @@
                 }
                 if (idx != -1) connections.splice(idx, 1);
             }
+			console.log("length: ", connections.length);
             if (connections.length > 0) {
                 var s = "<span><strong>Connections</strong></span><br/><br/><table><tr><th>Scope</th><th>Source</th><th>Target</th></tr>";
                 for (var j = 0; j < connections.length; j++) {
@@ -88,7 +89,7 @@
             // there is a 'beforeDrop' interceptor on this endpoint which is used to allow the user to decide whether
             // or not to allow a particular connection to be established.
             //
-            var exampleColor = "#00f";
+            var exampleColor = "#0ff";
             var exampleEndpoint = {
                 endpoint: "Rectangle",
                 paintStyle: { width: 25, height: 21, fill: exampleColor },
@@ -124,7 +125,7 @@
                 scope: "green",
                 connectorStyle: { stroke: color2, strokeWidth: 6 },
                 connector: ["Bezier", { curviness: 63 } ],
-                maxConnections: 3,
+                maxConnections: 2,
                 isTarget: true,
                 dropOptions: exampleDropOptions
             };
@@ -206,6 +207,7 @@
 
             var dragLinks = jsPlumb.getSelector(".drag-drop-demo .drag");
             instance.on(dragLinks, "click", function (e) {
+				console.log("dragLinks", dragLinks);
                 var s = instance.toggleDraggable(this.getAttribute("rel"));
                 this.innerHTML = (s ? 'disable dragging' : 'enable dragging');
                 jsPlumbUtil.consume(e);
@@ -213,6 +215,7 @@
 
             var detachLinks = jsPlumb.getSelector(".drag-drop-demo .detach");
             instance.on(detachLinks, "click", function (e) {
+				console.log("detachLinks", detachLinks);
                 instance.detachAllConnections(this.getAttribute("rel"));
                 jsPlumbUtil.consume(e);
             });

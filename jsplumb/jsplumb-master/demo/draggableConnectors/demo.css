@@ -78,7 +78,6 @@
 }
 
 
-.dragDropWindow11 { content:url("monitor.png"); width: 64px; height: 64px;}
 
 /** ELEMENTS **/
 .drag-drop-demo .window {
@@ -98,8 +97,8 @@
     position: absolute;
     color: black;
     padding-top: 5px;
-    width: 140px;
-    height: 120px;
+    width: 64px;
+    height: 64px;
     line-height: 12px;
     -webkit-transition: -webkit-box-shadow 0.15s ease-in;
     -moz-transition: -moz-box-shadow 0.15s ease-in;

@@ -158,8 +158,9 @@
 
 					//Get the dynamically item id
 					draggedNumber = ui.helper.attr('id').search(/drag([0-9])/)
-					itemDragged = "dragDropWindow11 window"
-					console.log(itemDragged)
+					//itemDragged = "dragDropWindow1 window"
+					itemDragged = "dragged" + RegExp.$1 + " window";
+					console.log(itemDragged);
 					
 					$("#clonediv"+counter).addClass(itemDragged);
 				}
