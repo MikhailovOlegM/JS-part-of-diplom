@@ -101,97 +101,12 @@
 		<script src="demo.js"></script>
 		
 		<script> 
-		$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow5\">five<br/><br/><a href=\"#\" class=\"cmdLink hide\" rel=\"dragDropWindow1\">toggle connections</a><br/><br/></div>" );
-		console.log(jsPlumb.getSelector("#dragDropWindow5"));
+		$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow5\">five</div>" );
+		console.log("DELETE",jsPlumb.getSelector("#dragDropWindow5"));
 		</script>
 		
 		<script type="text/javascript">
-		
-    $(document).ready(function(){
-        //Counter
-        counter = 0;
-        //Make element draggable
-        $(".drag").draggable({
-            helper:'clone',
-            containment: 'frame',
-
-            //When first dragged
-            stop:function(ev, ui) {
-            	var pos=$(ui.helper).offset();
-				console.log(pos)
-            	objName = "#clonediv"+counter;
-				console.log(jsPlumb.getSelector(objName));
-				
-					var X = ev.pageX; // положения по оси X
-					var Y = ev.pageY; // положения по оси Y
-					console.log("X: " + X + " Y: " + Y); 
-				
-				
-            	$(objName).css({"left":X,"top":Y});
-            	$(objName).removeClass("drag");
-
-
-               	//When an existiung object is dragged
-                $(objName).draggable({
-                	containment: 'parent',
-                    stop:function(ev, ui) {
-                    	var pos=$(ui.helper).offset();
-                    	console.log($(this).attr("id"));
-						console.log(pos.left);
-                        console.log(pos.top);
-                    }
-                });
-            }
-        });
-        //Make element droppable
-		 var exampleDropOptions = {
-                tolerance: "touch",
-                hoverClass: "dropHover",
-                activeClass: "dragActive"
-            };
-        $("#canvas").droppable({
-			drop: function(ev, ui) {
-				if (ui.helper.attr('id').search(/drag[0-9]/) != -1){
-					counter++;
-					var element=$(ui.draggable).clone();
-					console.log("element: ", element);
-					element.addClass("tempclass");
-					//$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow6\">six<br/></div>" );
-					$(this).append(element);
-					$(".tempclass").attr("id","clonediv"+counter);
-					$("#clonediv"+counter).removeClass("tempclass");
-
-					//Get the dynamically item id
-					draggedNumber = ui.helper.attr('id').search(/drag([0-9])/)
-					//itemDragged = "dragDropWindow1 window"
-					itemDragged = "dragged" + RegExp.$1 + " window";
-					
-					console.log(itemDragged);
-					
-					$("#clonediv"+counter).addClass(itemDragged);
-					
-					var exampleEndpoint2 = {
-					endpoint: ["Dot", { radius: 11 }],
-					paintStyle: { fill: "#f0f" },
-					isSource: true,
-					scope: "green",
-					connectorStyle: { stroke: "#f0f", strokeWidth: 6 },
-					connector: ["Bezier", { curviness: 63 } ],
-					maxConnections: 2,
-					isTarget: true,
-					dropOptions: exampleDropOptions
-				};	
-				console.log("itemDrugget: ", $(element).attr("class"));
-				console.log("itemDrugget: ", jsPlumb.getSelector($(element).attr("class")));
-
-					jsPlumb.addEndpoint(jsPlumb.getSelector(itemDragged), { anchor: "RightMiddle" }, exampleEndpoint2);
-				}
-        	return;
-			}
-        });
-
-
-    });
+    
 
 	</script>
 		

@@ -49,6 +49,100 @@
 
         // suspend drawing and initialise.
         instance.batch(function () {
+			
+			/////////my part////////////////
+        //Counter
+        counter = 0;
+        //Make element draggable
+        $(".drag").draggable({
+            helper:'clone',
+            containment: 'frame',
+
+            //When first dragged
+            stop:function(ev, ui) {
+            	var pos=$(ui.helper).offset();
+				console.log(pos)
+            	objName = "#clonediv"+counter;
+				console.log(jsPlumb.getSelector(objName));
+				
+					var X = ev.pageX; // положения по оси X
+					var Y = ev.pageY; // положения по оси Y
+					console.log("X: " + X + " Y: " + Y); 
+				
+				
+            	$(objName).css({"left":X,"top":Y});
+            	$(objName).removeClass("drag");
+
+
+               	//When an existiung object is dragged
+                $(objName).draggable({
+                	containment: 'parent',
+                    stop:function(ev, ui) {
+                    	var pos=$(ui.helper).offset();
+                    	console.log($(this).attr("id"));
+						console.log(pos.left);
+                        console.log(pos.top);
+                    }
+                });
+            }
+        });
+        //Make element droppable
+		 var exampleDropOptions = {
+                tolerance: "touch",
+                hoverClass: "dropHover",
+                activeClass: "dragActive"
+            };
+        $("#canvas").droppable({
+			drop: function(ev, ui) {
+				if (ui.helper.attr('id').search(/drag[0-9]/) != -1){
+					counter++;
+					var element=$(ui.draggable).clone();
+					console.log("element: ", element);
+					element.addClass("tempclass");
+					//$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow6\">six<br/></div>" );
+					$(this).append(element);
+					var newElementId = "clonediv"+counter;
+					$(".tempclass").attr("id",newElementId);
+					$("#clonediv"+counter).removeClass("tempclass");
+
+					//Get the dynamically item id
+					draggedNumber = ui.helper.attr('id').search(/drag([0-9])/)
+					//itemDragged = "dragDropWindow1 window"
+					itemDragged = "dragged" + RegExp.$1 + " window jtk-draggable jtk-endpoint-anchor";
+					
+					console.log(itemDragged);
+					
+					$("#clonediv"+counter).addClass(itemDragged);
+					
+					var exampleEndpoint2 = {
+					endpoint: ["Dot", { radius: 11 }],
+					paintStyle: { fill: "#f0f" },
+					isSource: true,
+					scope: "green",
+					connectorStyle: { stroke: "#f0f", strokeWidth: 6 },
+					connector: ["Bezier", { curviness: 63 } ],
+					maxConnections: 2,
+					isTarget: true,
+					dropOptions: exampleDropOptions
+				};	
+				var maxConnectionsCallback = function (info) {
+                    alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
+                };
+					console.log("find end point", newElementId);
+					instance.addEndpoint(newElementId, { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
+					//e1.bind(newElementId, maxConnectionsCallback);
+					
+				}
+			}
+        });
+
+			///////////////////////////////////////////////////////
+			
+			
+			
+			
+			
+			
 
             // bind to connection/connectionDetached events, and update the list of connections on screen.
             instance.bind("connection", function (info, originalEvent) {
