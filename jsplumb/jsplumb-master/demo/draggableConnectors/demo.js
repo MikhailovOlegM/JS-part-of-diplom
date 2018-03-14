@@ -114,17 +114,7 @@
 					
 					$("#clonediv"+counter).addClass(itemDragged);
 					
-					var exampleEndpoint2 = {
-					endpoint: ["Dot", { radius: 11 }],
-					paintStyle: { fill: "#f0f" },
-					isSource: true,
-					scope: "green",
-					connectorStyle: { stroke: "#f0f", strokeWidth: 6 },
-					connector: ["Bezier", { curviness: 63 } ],
-					maxConnections: 2,
-					isTarget: true,
-					dropOptions: exampleDropOptions
-				};	
+					
 				var maxConnectionsCallback = function (info) {
                     alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
                 };
