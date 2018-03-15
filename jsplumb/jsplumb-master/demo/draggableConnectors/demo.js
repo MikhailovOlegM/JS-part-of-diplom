@@ -86,17 +86,12 @@
                 });
             }
         });
-        //Make element droppable
-		 var exampleDropOptions = {
-                tolerance: "touch",
-                hoverClass: "dropHover",
-                activeClass: "dragActive"
-            };
+		var element;
         $("#canvas").droppable({
 			drop: function(ev, ui) {
 				if (ui.helper.attr('id').search(/drag[0-9]/) != -1){
 					counter++;
-					var element=$(ui.draggable).clone();
+					 element=$(ui.draggable).clone();
 					console.log("element: ", element);
 					element.addClass("tempclass");
 					//$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow6\">six<br/></div>" );
@@ -113,21 +108,40 @@
 					console.log(itemDragged);
 					
 					$("#clonediv"+counter).addClass(itemDragged);
+						
+					
+					 instance.makeSource(newElementId, {
+						filter: ".jtk-endpoint-anchor",
+						anchor: "Continuous",
+						connectorStyle: { stroke: "#5c96bc", strokeWidth: 2, outlineStroke: "transparent", outlineWidth: 4 },
+						connectionType:"basic",
+						extract:{
+							"action":"the-action"
+						}
+					});	
 					
 					
-				var maxConnectionsCallback = function (info) {
-                    alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
-                };
 					console.log("find end point", newElementId);
 					instance.addEndpoint(newElementId, { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
-					//e1.bind(newElementId, maxConnectionsCallback);
 					
 				}
 			}
         });
 
 			///////////////////////////////////////////////////////
-			
+			 instance.draggable({
+            containment: 'parent',
+            drag:function(e){
+	    	   	 console.log("test")
+             $(this).find('.jtk-endpoint-anchor').each(function(i,e){
+           
+                    if($(e).hasClass("connect"))
+                        jsPlumb.repaint($(e).parent());
+                    else
+                        jsPlumb.repaint($(e));
+				});										
+            }
+        });
 			
 			
 			
