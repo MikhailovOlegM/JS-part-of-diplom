@@ -122,8 +122,9 @@
 					
 					
 					console.log("find end point", newElementId);
+					instance.draggable(jsPlumb.getSelector("#" + newElementId));
 					instance.addEndpoint(newElementId, { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
-					jsPlumb.repaint($(newElementId));
+					
 				}
 			}
         });
