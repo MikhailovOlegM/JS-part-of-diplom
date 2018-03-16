@@ -89,6 +89,7 @@
 		var element;
         $("#canvas").droppable({
 			drop: function(ev, ui) {
+				console.log(ui.helper.attr('id'));
 				if (ui.helper.attr('id').search(/drag[0-9]/) != -1){
 					counter++;
 					 element=$(ui.draggable).clone();

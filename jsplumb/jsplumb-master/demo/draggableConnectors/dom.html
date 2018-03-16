@@ -13,13 +13,25 @@
         <link rel="stylesheet" href="../../css/jsplumbtoolkit-demo.css">
         <link rel="stylesheet" href="demo.css">
 		
-		
-		
-		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+		<!--<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 		<script type="text/javascript">
 	    google.load("jquery", "1.4.2");
 		google.load("jqueryui", "1.7.2");
-	 </script>
+	 </script>-->
+	 
+		<!--  jqury -->
+		
+		<script src="jquery/jquery-3.3.1.js"></script>
+		<link rel="stylesheet" href="jqueryui/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="jqueryui/jquery-ui.js"></script>
+
+	
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+	
+	
     </head>
     <body data-demo-id="draggableConnectors">
 
@@ -43,15 +55,41 @@
     </div> <!-- end of End Device -->
 	</div><!-- end of options -->
             <!-- demo -->
-            <div class="jtk-demo-canvas canvas-wide drag-drop-demo jtk-surface jtk-surface-nopan" id="canvas">
+           <div class="jtk-demo-canvas canvas-wide drag-drop-demo jtk-surface jtk-surface-nopan" id="canvas">
+		    
                 <div class="window" id="dragDropWindow1">one<br/></div>
                 <div class="window" id="dragDropWindow2">two<br/></div>
                 <div class="window" id="dragDropWindow3">three<br/></div>
                 <div class="window" id="dragDropWindow4">four<br/></div>
+				
                 <div id="list"></div>
             </div>
+			 
 			
             <!-- /explanation -->
+			<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Посмотреть демо
+      </button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Название модали</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary">Сохранить изменения</button>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
 
 		
@@ -100,9 +138,6 @@
 		<!--  demo code -->
 		<script src="demo.js"></script>
 		
-		<script> 
-		//$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow5\">five</div>" );
-		</script>
 		
         <script src="../demo-list.js"></script>
     </body>
