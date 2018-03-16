@@ -43,10 +43,6 @@
                 };
 
             // next/previous links
-            var d = _d("div", "demo-links", document.body),
-                dp = _d("div", "", d, "<a href='../" + list[prev][0] + "/dom.html'>" + list[prev][1] + "<i class='fa fa-arrow-left'></i></a>"),
-                dc = _d("div", "current-library", d, list[idx][1]),
-                dn = _d("div", "", d, "<a href='../" + list[next][0] + "/dom.html'><i class='fa fa-arrow-right'></i>" + list[next][1] + "</a>");
 
             // make a drop down.
             var m = document.querySelectorAll(".menu")[0],

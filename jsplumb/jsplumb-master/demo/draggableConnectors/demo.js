@@ -130,6 +130,20 @@
 			}
         });
 
+        //////////////////////////////////////////////
+        
+        $('.window').on('dblclick', function() {
+            switch ($(this).attr('id')) {
+                case "dragDropWindow1":
+                 $('#myModal1').modal('show');
+                    break;
+                case "dragDropWindow2":
+                $('#myModal2').modal('show');
+                    break;
+            }
+
+        });       
+
 			///////////////////////////////////////////////////////
 			
 			
