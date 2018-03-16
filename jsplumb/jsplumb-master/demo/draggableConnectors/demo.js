@@ -107,8 +107,23 @@
 					
 					console.log(itemDragged);
 					
+					$("#clonediv"+counter).addClass(itemDragged);
+						
+					
+					 instance.makeSource(newElementId, {
+						filter: ".jtk-endpoint-anchor",
+						anchor: "Continuous",
+						connectorStyle: { stroke: "#5c96bc", strokeWidth: 2, outlineStroke: "transparent", outlineWidth: 4 },
+						connectionType:"basic",
+						extract:{
+							"action":"the-action"
+						}
+					});	
+					
+					
 					console.log("find end point", newElementId);
-					jsPlumb.addEndpoint(newElementId, { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
+					instance.addEndpoint(newElementId, { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
+					jsPlumb.repaint($(newElementId));
 				}
 			}
         });
