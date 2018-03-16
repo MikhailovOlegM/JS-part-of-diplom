@@ -107,47 +107,15 @@
 					
 					console.log(itemDragged);
 					
-					$("#clonediv"+counter).addClass(itemDragged);
-						
-					
-					 instance.makeSource(newElementId, {
-						filter: ".jtk-endpoint-anchor",
-						anchor: "Continuous",
-						connectorStyle: { stroke: "#5c96bc", strokeWidth: 2, outlineStroke: "transparent", outlineWidth: 4 },
-						connectionType:"basic",
-						extract:{
-							"action":"the-action"
-						}
-					});	
-					
-					
 					console.log("find end point", newElementId);
-					instance.addEndpoint(newElementId, { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
-					
+					jsPlumb.addEndpoint(newElementId, { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
 				}
 			}
         });
 
 			///////////////////////////////////////////////////////
-			 instance.draggable({
-            containment: 'parent',
-            drag:function(e){
-	    	   	 console.log("test")
-             $(this).find('.jtk-endpoint-anchor').each(function(i,e){
-           
-                    if($(e).hasClass("connect"))
-                        jsPlumb.repaint($(e).parent());
-                    else
-                        jsPlumb.repaint($(e));
-				});										
-            }
-        });
 			
 			
-			
-			
-			
-
             // bind to connection/connectionDetached events, and update the list of connections on screen.
             instance.bind("connection", function (info, originalEvent) {
                 updateConnections(info.connection);
