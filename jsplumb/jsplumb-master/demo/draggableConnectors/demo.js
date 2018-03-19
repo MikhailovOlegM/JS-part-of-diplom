@@ -85,6 +85,7 @@
                     }
                 });
             }
+
         });
 		var element;
         $("#canvas").droppable({
@@ -96,7 +97,7 @@
 					console.log("element: ", element);
 					element.addClass("tempclass");
 					//$( "#canvas" ).append( "<div class=\"window\" id=\"dragDropWindow6\">six<br/></div>" );
-					$(this).append(element);
+					$("#canvas").append(element);
 					var newElementId = "clonediv"+counter;
 					$(".tempclass").attr("id",newElementId);
 					$("#clonediv"+counter).removeClass("tempclass");
@@ -104,13 +105,13 @@
 					//Get the dynamically item id
 					draggedNumber = ui.helper.attr('id').search(/drag([0-9])/)
 					//itemDragged = "dragDropWindow1 window"
-					itemDragged = "dragged" + RegExp.$1 + " window jtk-draggable jtk-endpoint-anchor";
+					itemDragged = " window dragged" + RegExp.$1 + " jtk-draggable jtk-endpoint-anchor";
 					
 					console.log(itemDragged);
 					
 					$("#clonediv"+counter).addClass(itemDragged);
 						
-					
+					/*
 					 instance.makeSource(newElementId, {
 						filter: ".jtk-endpoint-anchor",
 						anchor: "Continuous",
@@ -119,26 +120,38 @@
 						extract:{
 							"action":"the-action"
 						}
-					});	
+					});	*/
 					
 					
 					console.log("find end point", newElementId);
 					instance.draggable(jsPlumb.getSelector("#" + newElementId));
 					instance.addEndpoint(newElementId, { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
 					
+                    var elem = jsPlumb.getSelector("." + 'window');
+            console.log('selector: ', elem);
+            
 				}
 			}
         });
 
             ///////////////////////////////////////////////////////
+            var elem = jsPlumb.getSelector(".window");
+            console.log('selector: ', elem);
+            
+            $(document).on('click','.window',function(){
+                console.log('selector: ');
+                //instance.remove($(this));
+                //other logic goes here...
+            });
+
+          
         
-        $('.window').on('dblclick', function() {
+       $('.window').dblclick(function() {
+        //console.log("THIS:", $(this).attr('id'));
             switch ($(this).attr('id')) {
                 case "dragDropWindow1":
-                 $('#myModal1').modal('show');
-                    break;
-                case "dragDropWindow2":
-                $('#myModal2').modal('show');
+
+                alert( "Handler for .dblclick() called." );
                     break;
             }
 
