@@ -60,12 +60,12 @@
 	</div><!-- end of options -->
             <!-- demo -->
            <div class="jtk-demo-canvas canvas-wide drag-drop-demo jtk-surface jtk-surface-nopan" id="canvas">
-		    
+		    <!--
                 <div class="window" id="dragDropWindow1">one<br/></div>
                 <div class="window" id="dragDropWindow2">two<br/></div>
                 <div class="window" id="dragDropWindow3">three<br/></div>
                 <div class="window" id="dragDropWindow4">four<br/></div>
-				
+				-->
                 <div id="list"></div>
             </div>
 			 
@@ -76,16 +76,26 @@
 
 
 <!-- This is the modal -->
-<a class="uk-button uk-button-default" href="#modal-sections" uk-toggle>Open</a>
-
-<div id="modal-sections" uk-modal>
+<div id="modal-sections1" uk-modal>
     <div class="uk-modal-dialog">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Modal Title</h2>
+            <h2 class="uk-modal-title">Wi-Fi router</h2>
         </div>
         <div class="uk-modal-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="uk-margin">
+                Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
+            </div>
+            <div class="uk-margin">
+                MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
+            </div>
+            <div class="uk-margin">
+                IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+            </div>
+            <div class="uk-margin">
+                Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
+                <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+            </div>
         </div>
         <div class="uk-modal-footer uk-text-right">
             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
@@ -94,28 +104,85 @@
     </div>
 </div>
 <!-- Modal 2 -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modem</h4>
-      </div>
-      <div class="modal-body">
-        <div>
-            Ip adress:   <input id="ip" type="text" size="40"> <br>
-            MAC adress: <input id="mac" type="text" size="40"> <br>
-            Max speed: <input id="speed" type="number" value="0" min="0" max="200"> <br>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary">Сохранить изменения</button>
-      </div>
-    </div>
-  </div>
-</div>
+<div id="modal-sections2" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Modem</h2>
         </div>
+        <div class="uk-modal-body">
+            <div class="uk-margin">
+                Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
+            </div>
+            <div class="uk-margin">
+                MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
+            </div>
+            <div class="uk-margin">
+                IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+            </div>
+            <div class="uk-margin">
+                Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
+                <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+            </div>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button">Save</button>
+        </div>
+    </div>
+</div>
+<!-- Modal 3 -->
+<div id="modal-sections3" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Фиг знает</h2>
+        </div>
+        <div class="uk-modal-body">
+            <div class="uk-margin">
+                Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
+            </div>
+            <div class="uk-margin">
+                MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
+            </div>
+            <div class="uk-margin">
+                IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+            </div>
+            <div class="uk-margin">
+                Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
+                <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+            </div>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button" onclick="saveFirstModal()">Save</button>
+        </div>
+    </div>
+</div>
+<!-- Modal 4 -->
+<div id="modal-sections4" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Computer</h2>
+        </div>
+        <div class="uk-modal-body">
+            <div class="uk-margin">
+                Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
+            </div>
+            <div class="uk-margin">
+                MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
+            </div>
+            <div class="uk-margin">
+                IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+            </div>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button">Save</button>
+        </div>
+    </div>
+</div>
 		
         <!-- JS -->
         <!-- support lib for bezier stuff -->
@@ -161,6 +228,9 @@
 
 		<!--  demo code -->
 		<script src="demo.js"></script>
+
+        <!--  io masc -->
+        <script src="ipmasc-valid.js"></script>
 		
 		
         <script src="../demo-list.js"></script>

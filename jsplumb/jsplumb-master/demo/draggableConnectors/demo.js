@@ -138,26 +138,51 @@
             var elem = jsPlumb.getSelector(".window");
             console.log('selector: ', elem);
             
-            $(document).on('click','.window',function(){
-                console.log('selector: ');
-                //instance.remove($(this));
-                //other logic goes here...
+            $(document).on('dblclick','.window',function(){
+                var className = $(this).attr('class');
+                var key = className.substring(className.indexOf('dragged'), className.indexOf('dragged')+8).trim();
+                console.log('key:', key);
+                switch (key) {
+                case "dragged1":
+                    var modal = UIkit.modal("#modal-sections1");
+                    modal.show();
+                break;
+                case "dragged2":
+                    var modal = UIkit.modal("#modal-sections2");
+                    modal.show();
+                break;
+                case "dragged3":
+                    var modal = UIkit.modal("#modal-sections3");
+                    modal.show();
+                break;
+                case "dragged4":
+                    var modal = UIkit.modal("#modal-sections4");
+                    modal.show();
+                break;
+            }
             });
 
-          
-        
-       $('.window').dblclick(function() {
-        //console.log("THIS:", $(this).attr('id'));
-            switch ($(this).attr('id')) {
-                case "dragDropWindow1":
+			/////////////////////input field on modal///////////////////////
+            $('.mac-address').keyup(function(e) {
+                
+                var inputText = $(this).val();
+                var lengthWord = inputText.replace('.','').length;
+                if(lengthWord%2 === 0){
+                    console.log('input word:', $(this).val());
+                    $(this).val(inputText + '.'); 
+                    //document.getElementById('i1').value = globalVar;
+                }
+            });
 
-                alert( "Handler for .dblclick() called." );
-                    break;
+            $('.max_speed_value').text('15');
+            $(document).on('input', '.uk-range', function() {
+                $('.max_speed_value').html( $(this).val() );
+            });
+
+            function saveFirstModal(ev){
+                console.log('ev', ev);
             }
-
-        });       
-
-			///////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////
 			
 			
             // bind to connection/connectionDetached events, and update the list of connections on screen.
@@ -272,7 +297,6 @@
 
             // setup some empty endpoints.  again note the use of the three-arg method to reuse all the parameters except the location
             // of the anchor (purely because we want to move the anchor around here; you could set it one time and forget about it though.)
-            var e1 = instance.addEndpoint('dragDropWindow1', { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
 
             // setup some DynamicAnchors for use with the blue endpoints
             // and a function to set as the maxConnections callback.
@@ -285,7 +309,7 @@
                 maxConnectionsCallback = function (info) {
                     alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
                 };
-
+         /*       
             var e1 = instance.addEndpoint("dragDropWindow1", { anchor: anchors }, exampleEndpoint);
             // you can bind for a maxConnections callback using a standard bind call, but you can also supply 'onMaxConnections' in an Endpoint definition - see exampleEndpoint3 above.
             e1.bind("maxConnections", maxConnectionsCallback);
@@ -302,7 +326,7 @@
             var e4 = instance.addEndpoint("dragDropWindow4", { anchor: [1, 0.5, 1, 0] }, exampleEndpoint);
             e4.bind("maxConnections", maxConnectionsCallback);
             instance.addEndpoint("dragDropWindow4", { anchor: [0.25, 0, 0, -1] }, exampleEndpoint2);
-
+*/
             // make .window divs draggable
             instance.draggable(jsPlumb.getSelector(".drag-drop-demo .window"));
 
