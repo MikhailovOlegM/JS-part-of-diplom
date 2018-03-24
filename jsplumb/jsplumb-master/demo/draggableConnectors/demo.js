@@ -49,7 +49,7 @@
 
         // suspend drawing and initialise.
         instance.batch(function () {
-			
+
 			/////////my part////////////////
         //Counter
         counter = 0;
@@ -64,13 +64,13 @@
 				console.log(pos)
             	objName = "#clonediv"+counter;
 				console.log(jsPlumb.getSelector(objName));
-				
+
 					var X = ev.pageX; // положения по оси X
 					var Y = ev.pageY; // положения по оси Y
-					console.log("X: " + X + " Y: " + Y); 
-				
-				
-            	$(objName).css({"left":X,"top":Y});
+					console.log("X: " + X + " Y: " + Y);
+
+
+            	$(objName).css({"left":100,"top":100});
             	$(objName).removeClass("drag");
 
 
@@ -106,11 +106,11 @@
 					draggedNumber = ui.helper.attr('id').search(/drag([0-9])/)
 					//itemDragged = "dragDropWindow1 window"
 					itemDragged = " window dragged" + RegExp.$1 + " jtk-draggable jtk-endpoint-anchor";
-					
+
 					console.log(itemDragged);
-					
+
 					$("#clonediv"+counter).addClass(itemDragged);
-						
+
 					/*
 					 instance.makeSource(newElementId, {
 						filter: ".jtk-endpoint-anchor",
@@ -121,15 +121,15 @@
 							"action":"the-action"
 						}
 					});	*/
-					
-					
+
+
 					console.log("find end point", newElementId);
 					instance.draggable(jsPlumb.getSelector("#" + newElementId));
 					instance.addEndpoint(newElementId, { anchor: [0.5, 1, 0, 1] }, exampleEndpoint2);
-					
+
                     var elem = jsPlumb.getSelector("." + 'window');
             console.log('selector: ', elem);
-            
+
 				}
 			}
         });
@@ -137,43 +137,37 @@
             ///////////////////////////////////////////////////////
             var elem = jsPlumb.getSelector(".window");
             console.log('selector: ', elem);
-            
+
             $(document).on('dblclick','.window',function(){
                 var className = $(this).attr('class');
                 var key = className.substring(className.indexOf('dragged'), className.indexOf('dragged')+8).trim();
                 console.log('key:', key);
                 switch (key) {
                 case "dragged1":
-                    var modal = UIkit.modal("#modal-sections1");
-                    modal.show();
+                    UIkit.offcanvas("#modal-sections1").show();
                 break;
-                case "dragged2":
-                    var modal = UIkit.modal("#modal-sections2");
-                    modal.show();
-                break;
-                case "dragged3":
-                    var modal = UIkit.modal("#modal-sections3");
-                    modal.show();
-                break;
-                case "dragged4":
-                    var modal = UIkit.modal("#modal-sections4");
-                    modal.show();
-                break;
+                // case "dragged2":
+                //     var modal = UIkit.modal("#modal-sections2");
+                //     modal.show();
+                // break;
+                // case "dragged3":
+                //     var modal = UIkit.modal("#modal-sections3");
+                //     modal.show();
+                // break;
+                // case "dragged4":
+                //     var modal = UIkit.modal("#modal-sections4");
+                //     modal.show();
+                // break;
             }
             });
 
 			/////////////////////input field on modal///////////////////////
-            $('.mac-address').keyup(function(e) {
-                
-                var inputText = $(this).val();
-                var lengthWord = inputText.replace('.','').length;
-                if(lengthWord%2 === 0){
-                    console.log('input word:', $(this).val());
-                    $(this).val(inputText + '.'); 
-                    //document.getElementById('i1').value = globalVar;
-                }
+            $('.mac-address').mask('AA:AA:AA:AA:AA:AA', {
+              onKeyPress: function(str, e, obj){
+                $(obj).val(str.toLowerCase());
+              }
             });
-
+            // show max speed in canvas//
             $('.max_speed_value').text('15');
             $(document).on('input', '.uk-range', function() {
                 $('.max_speed_value').html( $(this).val() );
@@ -182,9 +176,43 @@
             function saveFirstModal(ev){
                 console.log('ev', ev);
             }
-            //////////////////////////////////////////////////////
-			
-			
+
+
+
+            ////ipv 4 and ipv6 ////
+            $(function(){
+            $('#modal1-ipv4').ipAddress();
+            $('#modal1-ipv6').ipAddress({v:6});
+            });
+
+
+
+            /////////////////Button save listener////////////////////////
+                $('#saveBtn').click(function(){
+                  console.log('name: ', $('#modal1-name').val());
+                  console.log('mac: ', $('#modal1-mac-address').val());
+                  var infoOfObject = {
+                    id : 1,
+                    name : $('#modal1-name').val(),
+                    mac : $('#modal1-mac-address').val(),
+                    ipv4 : $('#modal1-ipv4').val(),
+                    ipv6 : $('#modal1-ipv6').val()
+                  };
+                  var resultJSON = JSON.stringify(infoOfObject);
+
+                  $.ajax({
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    url: 'http://127.0.0.1:8088/test/save',
+                    data: resultJSON,
+                    dataType: "json"
+                  });
+
+                  console.log('result: ', resultJSON);
+                });
+            /////////////////////////////////////////////////////////////
+
+
             // bind to connection/connectionDetached events, and update the list of connections on screen.
             instance.bind("connection", function (info, originalEvent) {
                 updateConnections(info.connection);
@@ -309,7 +337,7 @@
                 maxConnectionsCallback = function (info) {
                     alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
                 };
-         /*       
+         /*
             var e1 = instance.addEndpoint("dragDropWindow1", { anchor: anchors }, exampleEndpoint);
             // you can bind for a maxConnections callback using a standard bind call, but you can also supply 'onMaxConnections' in an Endpoint definition - see exampleEndpoint3 above.
             e1.bind("maxConnections", maxConnectionsCallback);

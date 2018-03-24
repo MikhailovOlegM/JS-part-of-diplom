@@ -12,35 +12,27 @@
         <link rel="stylesheet" href="../../css/main.css">
         <link rel="stylesheet" href="../../css/jsplumbtoolkit-demo.css">
         <link rel="stylesheet" href="demo.css">
-		
+
 		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 		<script type="text/javascript">
 	    google.load("jquery", "1.7.1");
 		google.load("jqueryui", "1.7.2");
 	 </script>
-	 
+
+<script src="jqueryip/jquery.input-ip-address-control-1.0.min.js"></script>
+
      <!-- UIkit CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
 
         <!-- UIkit JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
-		<!--  
-		<script src="jquery/jquery-3.3.1.js"></script>
-		<link rel="stylesheet" href="jqueryui/jquery-ui.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="jqueryui/jquery-ui.js"></script>
 
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-	 -->
-	
     </head>
     <body data-demo-id="draggableConnectors">
 
         <a style="margin:10px 0 0 10px;display:inline-block" href="https://jsplumbtoolkit.com"></a>
-		
+
         <div class="jtk-demo-main">
 		<div id="options" style="border: 1px solid #CCC; height: 550px; max-height: 700px; width: 140px; float: left; padding-left: 5px; z-index: 30">
     <div>
@@ -60,49 +52,47 @@
 	</div><!-- end of options -->
             <!-- demo -->
            <div class="jtk-demo-canvas canvas-wide drag-drop-demo jtk-surface jtk-surface-nopan" id="canvas">
-		    <!--
-                <div class="window" id="dragDropWindow1">one<br/></div>
-                <div class="window" id="dragDropWindow2">two<br/></div>
-                <div class="window" id="dragDropWindow3">three<br/></div>
-                <div class="window" id="dragDropWindow4">four<br/></div>
-				-->
+
                 <div id="list"></div>
             </div>
-			 
-			
+
+
             <!-- /explanation -->
 
 <!-- Modal 1 -->
+<div class="uk-offcanvas-content">
 
+    <!-- <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-flip">Open</button> -->
 
-<!-- This is the modal -->
-<div id="modal-sections1" uk-modal>
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Wi-Fi router</h2>
-        </div>
-        <div class="uk-modal-body">
-            <div class="uk-margin">
-                Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
+    <div id="modal-sections1" uk-offcanvas="flip: true; overlay: true">
+        <div class="uk-offcanvas-bar">
+
+            <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+            <h3>Wi-Fi</h3>
+            <div class="uk-modal-body">
+                <div class="uk-margin">
+                    Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
+                </div>
+                <div class="uk-margin">
+                    MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
+                </div>
+                <div class="uk-margin">
+                    IPv4: <input id="modal1-ipv4" class="uk-input uk-form-width-medium uk-form-small" type="text">
+                </div>
+                <div class="uk-margin">
+                    IPv6: <input id="modal1-ipv6" class="uk-input uk-form-width-medium uk-form-small" type="text">
+                </div>
+                <div class="uk-margin">
+                    Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
+                    <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+                </div>
             </div>
-            <div class="uk-margin">
-                MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
-            </div>
-            <div class="uk-margin">
-                IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
-            </div>
-            <div class="uk-margin">
-                Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
-            </div>
-        </div>
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary" type="button">Save</button>
+                <button id="saveBtn" class="uk-button uk-button-primary" type="button">Save</button>
         </div>
     </div>
 </div>
+
 <!-- Modal 2 -->
 <div id="modal-sections2" uk-modal>
     <div class="uk-modal-dialog">
@@ -183,7 +173,7 @@
         </div>
     </div>
 </div>
-		
+
         <!-- JS -->
         <!-- support lib for bezier stuff -->
         <script src="jsBezier/js/jsbezier.js"></script>
@@ -225,14 +215,12 @@
         <!-- no library jsPlumb adapter -->
         <script src="../../src/dom.jsPlumb.js"></script>
         <!-- /JS -->
+        <!-- jquery masck -->
+        <script src="jquery_mask/src/jquery.mask.js"></script>
 
 		<!--  demo code -->
 		<script src="demo.js"></script>
 
-        <!--  io masc -->
-        <script src="ipmasc-valid.js"></script>
-		
-		
         <script src="../demo-list.js"></script>
     </body>
 </html>

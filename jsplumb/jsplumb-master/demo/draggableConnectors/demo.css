@@ -9,6 +9,10 @@
 	margin-left: 15px;
 }
 
+.uk-offcanvas-content{
+  width: 350px;
+}
+
 /** ELEMENT POSITIONS **/
 #dragDropWindow1 { top:62px; left:62px; content:url("monitor.png"); width: 64px; height: 64px;}
 #dragDropWindow2 { top:62px; left:600px; }
