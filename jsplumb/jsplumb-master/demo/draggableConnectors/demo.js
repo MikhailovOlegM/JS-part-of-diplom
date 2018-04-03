@@ -229,7 +229,7 @@
             });
 
             instance.bind("click", function (component, originalEvent) {
-                alert("click!")
+                UIkit.offcanvas("#type-of-connection").show();
             });
 
             // configure some drop options for use by all endpoints.
