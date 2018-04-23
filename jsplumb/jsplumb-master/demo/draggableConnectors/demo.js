@@ -142,10 +142,13 @@
 
       ///////////////////////////////////////////////////////
       var elem = jsPlumb.getSelector(".window");
+      var idOfClickedElem
       console.log('selector: ', elem);
 
       $(document).on('dblclick', '.window', function () {
         var className = $(this).attr('class');
+        idOfClickedElem = $(this).attr('id');
+
         var key = className.substring(
             className.indexOf('dragged'), className.indexOf('dragged')
             + 8).trim();
@@ -216,7 +219,8 @@
       });
       ///////////////////add connection button///////////////////////////
       $('#addConnection').click(function () {
-        console.log('add connection');
+        console.log('add connection', idOfClickedElem);
+        instance.addEndpoint(idOfClickedElem, { anchor: anchors }, exampleEndpoint);
       });
 
 
