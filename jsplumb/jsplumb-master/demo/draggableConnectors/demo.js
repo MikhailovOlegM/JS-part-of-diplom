@@ -218,9 +218,19 @@
         console.log('result: ', resultJSON);
       });
       ///////////////////add connection button///////////////////////////
+
       $('#addConnection').click(function () {
         console.log('add connection', idOfClickedElem);
-        instance.addEndpoint(idOfClickedElem, { anchor: anchors }, exampleEndpoint);
+        //UIkit.modal('#type-of-connection').show();
+        UIkit.modal.confirm('UIkit confirm!').then(function() {
+          console.log('Confirmed.')
+        }, function () {
+          console.log('Rejected.')
+        });
+
+
+
+        //instance.addEndpoint(idOfClickedElem, { anchor: anchors }, exampleEndpoint);
       });
 
 
