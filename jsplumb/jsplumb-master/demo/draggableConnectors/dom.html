@@ -30,6 +30,8 @@
 
     </head>
     <body data-demo-id="draggableConnectors">
+        <div class="container">
+          <!--<div class="panzoom">-->
 
         <a style="margin:10px 0 0 10px;display:inline-block" href="https://jsplumbtoolkit.com"></a>
 
@@ -87,6 +89,7 @@
                     Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
                     <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
                 </div>
+                <button id="addConnection" class="uk-button uk-button-primary" type="button">Add Connection</button>
             </div>
                 <button id="saveBtn" class="uk-button uk-button-primary" type="button">Save</button>
         </div>
@@ -183,7 +186,7 @@
         </div>
         <div class="uk-modal-body">
             <button class="uk-button uk-button-default" type="button">Hover</button>
-            <div uk-dropdown>
+            <div id="dropdown-menu" uk-dropdown>
                 <ul class="uk-nav uk-dropdown-nav">
                     <li><a href="#">Ethernet</a></li>
                     <li><a href="#">Wi-Fi 802.11</a></li>
@@ -199,6 +202,11 @@
     </div>
 </div>
 
+<div class="buttons">
+      <button class="zoom-in">Zoom In</button>
+      <button class="zoom-out">Zoom Out</button>
+      <input type="range" class="zoom-range">
+    </div>
         <!-- JS -->
         <!-- support lib for bezier stuff -->
         <script src="jsBezier/js/jsbezier.js"></script>
@@ -242,10 +250,13 @@
         <!-- /JS -->
         <!-- jquery masck -->
         <script src="jquery_mask/src/jquery.mask.js"></script>
+        <script src="panzoom/src/panzoom.js"></script>
 
 		<!--  demo code -->
 		<script src="demo.js"></script>
 
         <script src="../demo-list.js"></script>
+    </div>
+    <!--</div>-->
     </body>
 </html>

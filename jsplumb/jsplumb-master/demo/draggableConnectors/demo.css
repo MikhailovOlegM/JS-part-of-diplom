@@ -12,6 +12,16 @@
 .uk-offcanvas-content{
   width: 350px;
 }
+/*.panzoom {*/
+  /*position: absolute;*/
+  /*width:500px;*/
+  /*height:250px;*/
+  /*background-color: rgba(blue,.1);*/
+  /*left: 50px;*/
+  /*top: 20px;*/
+  /*overflow: visible;*/
+  /*border: 5px dotted rgba(#CCC,.1);*/
+/*}*/
 
 /** ELEMENT POSITIONS **/
 #dragDropWindow1 { top:62px; left:62px; content:url("monitor.png"); width: 64px; height: 64px;}
