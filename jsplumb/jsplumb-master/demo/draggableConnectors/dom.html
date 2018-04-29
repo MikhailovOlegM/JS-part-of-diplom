@@ -1,220 +1,218 @@
 <!doctype html>
 <html>
-    <head>
+<head>
 
-        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
-        <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
-        <!-- <link href="fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> -->
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+    <!-- <link href="fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> -->
 
-        <link rel="stylesheet" href="../../css/jsplumbtoolkit-defaults.css">
-        <link rel="stylesheet" href="../../css/main.css">
-        <link rel="stylesheet" href="../../css/jsplumbtoolkit-demo.css">
-        <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="../../css/jsplumbtoolkit-defaults.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/jsplumbtoolkit-demo.css">
+    <link rel="stylesheet" href="demo.css">
 
-		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-		<script type="text/javascript">
-	    google.load("jquery", "1.7.1");
-		google.load("jqueryui", "1.7.2");
-	 </script>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+        google.load("jquery", "1.7.1");
+        google.load("jqueryui", "1.7.2");
+    </script>
 
-<script src="jqueryip/jquery.input-ip-address-control-1.0.min.js"></script>
+    <script src="jqueryip/jquery.input-ip-address-control-1.0.min.js"></script>
 
-     <!-- UIkit CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css"/>
 
-        <!-- UIkit JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
 
-    </head>
-    <body data-demo-id="draggableConnectors">
-        <div class="container">
-          <!--<div class="panzoom">-->
+</head>
+<body data-demo-id="draggableConnectors">
+<div class="container">
+    <!--<div class="panzoom">-->
 
-        <a style="margin:10px 0 0 10px;display:inline-block" href="https://jsplumbtoolkit.com"></a>
+    <a style="margin:10px 0 0 10px;display:inline-block" href="https://jsplumbtoolkit.com"></a>
 
-        <div class="jtk-demo-main">
-		<div id="options" style="border: 1px solid #CCC; height: 550px; max-height: 700px; width: 140px; float: left; padding-left: 5px; z-index: 30">
-    <div>
-      <details>
-        <summary>Network Device</summary>
-    		<div id="drag1" class="drag"></div> <!-- end of drag1 -->
-    		<div id="drag2" class="drag"></div> <!-- end of drag2 -->
-      </details>
-    </div>  <!-- end of Network Device -->
-    <div>
-      <details>
-        <summary>End devices</summary>
-    		<div id="drag3" class="drag"></div> <!-- end of drag3 -->
-    		<div id="drag4" class="drag"></div> <!-- end of drag4 -->
-      </details>
-    </div> <!-- end of End Device -->
-	</div><!-- end of options -->
-            <!-- demo -->
-           <div class="jtk-demo-canvas canvas-wide drag-drop-demo jtk-surface jtk-surface-nopan" id="canvas">
+    <div class="jtk-demo-main">
+        <div id="options"
+             style="border: 1px solid #CCC; height: 550px; max-height: 700px; width: 140px; float: left; padding-left: 5px; z-index: 30">
+            <div>
+                <details>
+                    <summary>Network Device</summary>
+                    <div id="drag1" class="drag"></div> <!-- end of drag1 -->
+                    <div id="drag2" class="drag"></div> <!-- end of drag2 -->
+                </details>
+            </div>  <!-- end of Network Device -->
+            <div>
+                <details>
+                    <summary>End devices</summary>
+                    <div id="drag3" class="drag"></div> <!-- end of drag3 -->
+                    <div id="drag4" class="drag"></div> <!-- end of drag4 -->
+                </details>
+            </div> <!-- end of End Device -->
+        </div><!-- end of options -->
+        <!-- demo -->
+        <div class="jtk-demo-canvas canvas-wide drag-drop-demo jtk-surface jtk-surface-nopan" id="canvas">
 
-                <div id="list"></div>
-            </div>
+            <div id="list"></div>
+        </div>
 
 
-            <!-- /explanation -->
+        <!-- /explanation -->
 
-<!-- Modal 1 -->
-<div class="uk-offcanvas-content">
+        <!-- Modal 1 -->
+        <div class="uk-offcanvas-content">
 
-    <!-- <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-flip">Open</button> -->
+            <!-- <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-flip">Open</button> -->
 
-    <div id="modal-sections1" uk-offcanvas="flip: true; overlay: true">
-        <div class="uk-offcanvas-bar">
+            <div id="modal-sections1" uk-offcanvas="flip: true; overlay: true">
+                <div class="uk-offcanvas-bar">
 
-            <button class="uk-offcanvas-close" type="button" uk-close></button>
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
 
-            <h3>Wi-Fi</h3>
-            <div class="uk-modal-body">
-                <div class="uk-margin">
-                    Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
+                    <h3>Wi-Fi</h3>
+                    <div class="uk-modal-body">
+                        <div class="uk-margin">
+                            Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small"
+                                         type="text" placeholder="Name">
+                        </div>
+                        <div class="uk-margin">
+                            MAC: <input id="modal1-mac-address"
+                                        class="uk-input uk-form-width-medium uk-form-small mac-address">
+                        </div>
+                        <div class="uk-margin">
+                            IPv4: <input id="modal1-ipv4" class="uk-input uk-form-width-medium uk-form-small"
+                                         type="text">
+                        </div>
+                        <div class="uk-margin">
+                            IPv6: <input id="modal1-ipv6" class="uk-input uk-form-width-medium uk-form-small"
+                                         type="text">
+                        </div>
+                        <div class="uk-margin">
+                            Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
+                            <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+                        </div>
+                        <button id="addConnection" class="uk-button uk-button-primary" type="button">Add Connection
+                        </button>
+                    </div>
+                    <button id="saveBtn" class="uk-button uk-button-primary" type="button">Save</button>
                 </div>
-                <div class="uk-margin">
-                    MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
-                </div>
-                <div class="uk-margin">
-                    IPv4: <input id="modal1-ipv4" class="uk-input uk-form-width-medium uk-form-small" type="text">
-                </div>
-                <div class="uk-margin">
-                    IPv6: <input id="modal1-ipv6" class="uk-input uk-form-width-medium uk-form-small" type="text">
-                </div>
-                <div class="uk-margin">
-                    Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                    <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
-                </div>
-                <button id="addConnection" class="uk-button uk-button-primary" type="button">Add Connection</button>
             </div>
-                <button id="saveBtn" class="uk-button uk-button-primary" type="button">Save</button>
         </div>
-    </div>
-</div>
 
-<!-- Modal 2 -->
-<div id="modal-sections2" uk-modal>
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Modem</h2>
-        </div>
-        <div class="uk-modal-body">
-            <div class="uk-margin">
-                Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
-            </div>
-            <div class="uk-margin">
-                MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
-            </div>
-            <div class="uk-margin">
-                IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
-            </div>
-            <div class="uk-margin">
-                Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
-            </div>
-        </div>
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary" type="button">Save</button>
-        </div>
-    </div>
-</div>
-<!-- Modal 3 -->
-<div id="modal-sections3" uk-modal>
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Фиг знает</h2>
-        </div>
-        <div class="uk-modal-body">
-            <div class="uk-margin">
-                Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
-            </div>
-            <div class="uk-margin">
-                MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
-            </div>
-            <div class="uk-margin">
-                IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
-            </div>
-            <div class="uk-margin">
-                Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+        <!-- Modal 2 -->
+        <div id="modal-sections2" uk-modal>
+            <div class="uk-modal-dialog">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <div class="uk-modal-header">
+                    <h2 class="uk-modal-title">Modem</h2>
+                </div>
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text"
+                                     placeholder="Name">
+                    </div>
+                    <div class="uk-margin">
+                        MAC: <input id="modal1-mac-address"
+                                    class="uk-input uk-form-width-medium uk-form-small mac-address">
+                    </div>
+                    <div class="uk-margin">
+                        IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+                    </div>
+                    <div class="uk-margin">
+                        Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
+                        <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                    <button class="uk-button uk-button-primary" type="button">Save</button>
+                </div>
             </div>
         </div>
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary" type="button" onclick="saveFirstModal()">Save</button>
-        </div>
-    </div>
-</div>
-<!-- Modal 4 -->
-<div id="modal-sections4" uk-modal>
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Computer</h2>
-        </div>
-        <div class="uk-modal-body">
-            <div class="uk-margin">
-                Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="Name">
+        <!-- Modal 3 -->
+        <div id="modal-sections3" uk-modal>
+            <div class="uk-modal-dialog">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <div class="uk-modal-header">
+                    <h2 class="uk-modal-title">Фиг знает</h2>
+                </div>
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text"
+                                     placeholder="Name">
+                    </div>
+                    <div class="uk-margin">
+                        MAC: <input id="modal1-mac-address"
+                                    class="uk-input uk-form-width-medium uk-form-small mac-address">
+                    </div>
+                    <div class="uk-margin">
+                        IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+                    </div>
+                    <div class="uk-margin">
+                        Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
+                        <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                    <button class="uk-button uk-button-primary" type="button" onclick="saveFirstModal()">Save</button>
+                </div>
             </div>
-            <div class="uk-margin">
-                MAC: <input id="modal1-mac-address" class="uk-input uk-form-width-medium uk-form-small mac-address" >
-            </div>
-            <div class="uk-margin">
-                IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+        </div>
+        <!-- Modal 4 -->
+        <div id="modal-sections4" uk-modal>
+            <div class="uk-modal-dialog">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <div class="uk-modal-header">
+                    <h2 class="uk-modal-title">Computer</h2>
+                </div>
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text"
+                                     placeholder="Name">
+                    </div>
+                    <div class="uk-margin">
+                        MAC: <input id="modal1-mac-address"
+                                    class="uk-input uk-form-width-medium uk-form-small mac-address">
+                    </div>
+                    <div class="uk-margin">
+                        IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                    <button class="uk-button uk-button-primary" type="button">Save</button>
+                </div>
             </div>
         </div>
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary" type="button">Save</button>
-        </div>
-    </div>
-</div>
 
-<!-- Modal of connection -->
-<div id="type-of-connection" uk-modal>
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Choose type of connection:</h2>
+        <!-- Modal of connection -->
+        <div id="type-of-connection" class="remodal" data-remodal-id="modal">
+            <button data-remodal-action="close" class="remodal-close"></button>
+            <h1>Type of connection:</h1>
+            <select id="selected_type" class="js-example-basic-single" name="state">
+                <option value="Ethernet">Ethernet</option>
+                <option value="Wi-Fi">Wi-Fi 802.11</option>
+                <option value="LAN">LAN</option>
+            </select>
+            <br>
+            <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+            <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
         </div>
-        <div class="uk-modal-body">
-            <button class="uk-button uk-button-default" type="button">Hover</button>
-            <div id="dropdown-menu" uk-dropdown>
-                <ul class="uk-nav uk-dropdown-nav">
-                    <li><a href="#">Ethernet</a></li>
-                    <li><a href="#">Wi-Fi 802.11</a></li>
-                    <li><a href="#">LAN</a></li>
-                </ul>
-            </div>
-            <br> <span id="current-type-connection"></span>
-        </div>
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary" type="button">Save</button>
-        </div>
-    </div>
-</div>
 
-<div class="buttons">
-      <button class="zoom-in">Zoom In</button>
-      <button class="zoom-out">Zoom Out</button>
-      <input type="range" class="zoom-range">
-    </div>
+
         <!-- JS -->
         <!-- support lib for bezier stuff -->
         <script src="jsBezier/js/jsbezier.js"></script>
         <!-- event adapter -->
-		<script src="mottle/js/mottle.js"></script>
-		<!-- geometry functions -->
+        <script src="mottle/js/mottle.js"></script>
+        <!-- geometry functions -->
         <script src="biltong/src/biltong.js"></script>
-		<!-- drag -->
+        <!-- drag -->
         <script src="katavorio/src/katavorio.js"></script>
         <!-- jsplumb util -->
         <script src="../../src/util.js"></script>
@@ -250,13 +248,24 @@
         <!-- /JS -->
         <!-- jquery masck -->
         <script src="jquery_mask/src/jquery.mask.js"></script>
-        <script src="panzoom/src/panzoom.js"></script>
+        <!--<script src="panzoom/src/panzoom.js"></script>-->
 
-		<!--  demo code -->
-		<script src="demo.js"></script>
+        <!--  demo code -->
+        <script src="demo.js"></script>
+
+            <!--  rendmodal -->
+        <link rel="stylesheet" href="Remodal/dist/remodal.css">
+        <link rel="stylesheet" href="Remodal/dist/remodal-default-theme.css">
+        <script src="Remodal/dist/remodal.min.js"></script>
+
+        <!--select2-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+
 
         <script src="../demo-list.js"></script>
     </div>
     <!--</div>-->
-    </body>
+</body>
 </html>
