@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../css/jsplumbtoolkit-demo.css">
     <link rel="stylesheet" href="demo.css">
 
+    <script src="../devices.js"></script>
     <script src="http://www.google.com/jsapi" type="text/javascript"></script>
     <script type="text/javascript">
         google.load("jquery", "1.7.1");
@@ -59,8 +60,9 @@
 
             <div id="list"></div>
         </div>
-
-
+        <div style="text-align: right">
+            <button id="saveResultBtn" class="uk-button uk-button-primary">Save</button>
+        </div>
         <!-- /explanation -->
 
         <!-- Modal 1 -->
@@ -76,29 +78,29 @@
                     <h3>Wi-Fi</h3>
                     <div class="uk-modal-body">
                         <div class="uk-margin">
-                            Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small"
+                            Name: <input id="modal1-name_1" class="uk-input uk-form-width-medium uk-form-small"
                                          type="text" placeholder="Name">
                         </div>
                         <div class="uk-margin">
-                            MAC: <input id="modal1-mac-address"
+                            MAC: <input id="modal1-mac-address_1"
                                         class="uk-input uk-form-width-medium uk-form-small mac-address">
                         </div>
                         <div class="uk-margin">
-                            IPv4: <input id="modal1-ipv4" class="uk-input uk-form-width-medium uk-form-small"
+                            IPv4: <input id="modal1-ipv4_1" class="uk-input uk-form-width-medium uk-form-small ip_address_v4"
                                          type="text">
                         </div>
                         <div class="uk-margin">
-                            IPv6: <input id="modal1-ipv6" class="uk-input uk-form-width-medium uk-form-small"
+                            IPv6: <input id="modal1-ipv6_1" class="uk-input uk-form-width-medium uk-form-small ip_address_v6"
                                          type="text">
                         </div>
                         <div class="uk-margin">
                             Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                            <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+                            <input id="max_speed_1" class="uk-range" type="range" value="15" min="0" max="500" step="5">
                         </div>
                         <button id="addConnection" class="uk-button uk-button-primary" type="button">Add Connection
                         </button>
                     </div>
-                    <button id="saveBtn" class="uk-button uk-button-primary" type="button">Save</button>
+                    <button id="saveBtn_wifi" class="uk-button uk-button-primary" type="button">Save</button>
                 </div>
             </div>
         </div>
@@ -112,19 +114,19 @@
                 </div>
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text"
+                        Name: <input id="modal1-name_2" class="uk-input uk-form-width-medium uk-form-small" type="text"
                                      placeholder="Name">
                     </div>
                     <div class="uk-margin">
-                        MAC: <input id="modal1-mac-address"
+                        MAC: <input id="modal1-mac-address_2"
                                     class="uk-input uk-form-width-medium uk-form-small mac-address">
                     </div>
                     <div class="uk-margin">
-                        IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+                        IP: <input id="modal1-ip_2" class="uk-input uk-form-width-medium uk-form-small" type="text">
                     </div>
                     <div class="uk-margin">
                         Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                        <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+                        <input id="max_speed_2" class="uk-range" type="range" value="15" min="0" max="500" step="5">
                     </div>
                 </div>
                 <div class="uk-modal-footer uk-text-right">
@@ -142,19 +144,19 @@
                 </div>
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text"
+                        Name: <input id="modal1-name_3" class="uk-input uk-form-width-medium uk-form-small" type="text"
                                      placeholder="Name">
                     </div>
                     <div class="uk-margin">
-                        MAC: <input id="modal1-mac-address"
+                        MAC: <input id="modal1-mac-address_3"
                                     class="uk-input uk-form-width-medium uk-form-small mac-address">
                     </div>
                     <div class="uk-margin">
-                        IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+                        IP: <input id="modal1-ip_3" class="uk-input uk-form-width-medium uk-form-small" type="text">
                     </div>
                     <div class="uk-margin">
                         Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                        <input id="max_speed" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+                        <input id="max_speed_3" class="uk-range" type="range" value="15" min="0" max="500" step="5">
                     </div>
                 </div>
                 <div class="uk-modal-footer uk-text-right">
@@ -172,15 +174,15 @@
                 </div>
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        Name: <input id="modal1-name" class="uk-input uk-form-width-medium uk-form-small" type="text"
+                        Name: <input id="modal1-name_4" class="uk-input uk-form-width-medium uk-form-small" type="text"
                                      placeholder="Name">
                     </div>
                     <div class="uk-margin">
-                        MAC: <input id="modal1-mac-address"
+                        MAC: <input id="modal1-mac-address_4"
                                     class="uk-input uk-form-width-medium uk-form-small mac-address">
                     </div>
                     <div class="uk-margin">
-                        IP: <input id="modal1-ip" class="uk-input uk-form-width-medium uk-form-small" type="text">
+                        IP: <input id="modal1-ip_4" class="uk-input uk-form-width-medium uk-form-small" type="text">
                     </div>
                 </div>
                 <div class="uk-modal-footer uk-text-right">
@@ -191,10 +193,11 @@
         </div>
 
         <!-- Modal of connection -->
-        <div id="type-of-connection" class="remodal" data-remodal-id="modal">
+        <div id="type-of-connection" class="ethrnetRemodal" data-remodal-id="modal">
             <button data-remodal-action="close" class="remodal-close"></button>
             <h1>Type of connection:</h1>
-            <select id="selected_type" class="js-example-basic-single" name="state">
+            <select id="selected_type" class="js-example-basic-single" name="state" style="margin-bottom: 7px">
+                <option value=""></option>
                 <option value="Ethernet">Ethernet</option>
                 <option value="Wi-Fi">Wi-Fi 802.11</option>
                 <option value="LAN">LAN</option>
@@ -267,5 +270,6 @@
         <script src="../demo-list.js"></script>
     </div>
     <!--</div>-->
+
 </body>
 </html>

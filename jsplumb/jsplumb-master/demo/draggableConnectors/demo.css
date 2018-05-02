@@ -9,6 +9,16 @@
 	margin-left: 15px;
 }
 
+.ethrnetRemodal{
+  height:235px;
+  width: 250px;
+}
+
+#saveResultBtn{
+  text-align: right;
+  margin-top: 10px;
+}
+
 .uk-offcanvas-content{
   width: 350px;
 }
