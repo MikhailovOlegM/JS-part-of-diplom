@@ -1,6 +1,3 @@
-import {jsPlumb} from "../../index";
-
-;
 (function () {
 
     var listDiv = document.getElementById("list"),

@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c7a7b49-7633-4d5b-b401-45ebd968ad3d" name="Default" comment="">
+    <list default="true" id="2f10ab99-f7eb-4e91-9230-126681734bdc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/JS-part-of-diplom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JS-part-of-diplom.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/animation/bigdot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/animation/demo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/animation/demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/animation/dom.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/animation/littledot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/animation/littledot.xcf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/chart/demo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/chart/demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/chart/dom.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html" beforeDir="false" afterPath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,20 +22,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="demo.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="dom.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
-              <caret line="100" column="36" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demo.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+            <state relative-caret-position="129">
+              <caret line="225" column="48" lean-forward="true" selection-start-line="225" selection-start-column="48" selection-end-line="225" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -50,19 +40,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add c</find>
-      <find>remodal-confirm</find>
-      <find>instance.addEndpoint(idOfClickedElem, { anchor: anchors }, exampleEndpoint);</find>
-      <find>exampleEndpoint</find>
-      <find>Color</find>
-      <find>exampleEndpoint2</find>
-      <find>dblcl</find>
-      <find>destr</find>
-      <find>detac</find>
-      <find>save</find>
-      <find>list</find>
-      <find>connectionsconnections</find>
-      <find>connections</find>
+      <find>zoom</find>
+      <find>modal1-name</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -71,8 +50,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/Remodal/dist/remodal-default-theme.css" />
-        <option value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html" />
         <option value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js" />
       </list>
     </option>
@@ -83,33 +60,18 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/Remodal/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/biltong/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/bootstrap/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/jquery_mask/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/jqueryui/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/jsBezier/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/katavorio/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/mottle/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/webpack/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/package.json" />
-      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/tests/experiments/npm/package.json" />
-    </packageJsonPaths>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="24" />
+    <option name="x" value="-1939" />
+    <option name="y" value="-19" />
     <option name="width" value="1400" />
-    <option name="height" value="1028" />
+    <option name="height" value="1000" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,36 +105,22 @@
               <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="draggableConnectors" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="JS-part-of-diplom" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JS-part-of-diplom" type="462c0819:PsiDirectoryNode" />
-              <item name="jsplumb" type="462c0819:PsiDirectoryNode" />
-              <item name="jsplumb-master" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="draggableConnectors" type="462c0819:PsiDirectoryNode" />
-              <item name="Remodal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JS-part-of-diplom" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JS-part-of-diplom" type="462c0819:PsiDirectoryNode" />
-              <item name="jsplumb" type="462c0819:PsiDirectoryNode" />
-              <item name="jsplumb-master" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="draggableConnectors" type="462c0819:PsiDirectoryNode" />
-              <item name="Remodal" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.prettier" value="true" />
+    <property name="node.js.path.for.package.prettier" value="project" />
+    <property name="node.js.selected.package.prettier" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSHint" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -186,32 +134,40 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="demo.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="demo.js" working-dir="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors" />
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.demo.js" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6c7a7b49-7633-4d5b-b401-45ebd968ad3d" name="Default" comment="" />
-      <created>1524992180141</created>
+      <changelist id="2f10ab99-f7eb-4e91-9230-126681734bdc" name="Default" comment="" />
+      <created>1525243971512</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1524992180141</updated>
-      <workItem from="1524992181757" duration="10121000" />
+      <updated>1525243971512</updated>
+      <workItem from="1525243974996" duration="754000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10121000" />
+    <option name="totallyTimeSpent" value="754000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <frame x="-1928" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1828125" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32987747" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
@@ -219,9 +175,9 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
@@ -232,35 +188,19 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="1" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/Remodal/dist/remodal-default-theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="165" column="18" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/bootstrap/js/.jshintrc">
+    <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="100" column="36" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="36" />
+        <state relative-caret-position="129">
+          <caret line="225" column="48" lean-forward="true" selection-start-line="225" selection-start-column="48" selection-end-line="225" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
