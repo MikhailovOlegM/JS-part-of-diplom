@@ -161,33 +161,6 @@
                 </button>
             </div>
         </div>
-        <!-- Modal 4 -->
-        <div id="modal-sections4" uk-modal>
-            <div class="uk-modal-dialog">
-                <button class="uk-modal-close-default" type="button" uk-close></button>
-                <div class="uk-modal-header">
-                    <h2 class="uk-modal-title">Computer</h2>
-                </div>
-                <div class="uk-modal-body">
-                    <div class="uk-margin">
-                        Name: <input id="modal1-name_4" class="uk-input uk-form-width-medium uk-form-small" type="text"
-                                     placeholder="Name">
-                    </div>
-                    <div class="uk-margin">
-                        MAC: <input id="modal1-mac-address_4"
-                                    class="uk-input uk-form-width-medium uk-form-small mac-address">
-                    </div>
-                    <div class="uk-margin">
-                        IP: <input id="modal1-ip_4" class="uk-input uk-form-width-medium uk-form-small" type="text">
-                    </div>
-                </div>
-                <div class="uk-modal-footer uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                    <button class="uk-button uk-button-primary" type="button">Save</button>
-                </div>
-            </div>
-        </div>
-
         <!-- Modal wifi router-->
 
         <div id="wifi_router" uk-offcanvas="flip: true; overlay: true">
@@ -254,7 +227,7 @@
                     </select>
 
                 </div>
-                <button  class="uk-button uk-button-primary addConnection" type="button">Add Connection
+                <button class="uk-button uk-button-primary addConnection" type="button">Add Connection
                 </button>
             </div>
             <button id="saveBtn_wifi" class="uk-button uk-button-primary" type="button">Save</button>
@@ -300,6 +273,40 @@
                     <option value="FTP">FTP</option>
                     <option value="TFTP">TFTP</option>
                     <option value="DB">DB</option>
+                </select>
+                Operating system:
+                <select id="server_os" class="js-example-basic-single" name="Interface"
+                        style="width: 200px;margin-bottom: 7px; color: #000;">
+                    <option value=""></option>
+                    <optgroup label="Windows Server">
+                        <option value="Windows Server 2003">Windows Server 2003</option>
+                        <option value="Windows Server 2003 R2 ">Windows Server 2003 R2</option>
+                        <option value="Windows Server 2008 R2">Windows Server 2008 R2</option>
+                        <option value="Windows HPC Server 2008">Windows HPC Server 2008</option>
+                        <option value="Windows Home Server 2011 ">Windows Home Server 2011</option>
+                        <option value="Windows Server 2012">Windows Server 2012</option>
+                        <option value="Windows Server 2016">Windows Server 2016</option>
+                    </optgroup>
+                    <optgroup label="Ubuntu Server OS">
+                        <option value="10.04 LTS">10.04 LTS</option>
+                        <option value="12.04 LTS">12.04 LTS</option>
+                        <option value="14.04 LTS">14.04 LTS</option>
+                        <option value="16.04 LTS">16.04 LTS</option>
+                        <option value="17.10">17.10</option>
+                    </optgroup>
+                    <optgroup label="Debian OS">
+                        <option value="5.0">5.0</option>
+                        <option value="6.0">6.0</option>
+                        <option value="7.0">7.0</option>
+                        <option value="8.0">8.0</option>
+                    </optgroup>
+                    <optgroup label="CentOS">
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </optgroup>
                 </select>
 
 
