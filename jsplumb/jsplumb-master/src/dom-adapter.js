@@ -470,8 +470,6 @@
         },
         // CONVERTED
         getSelector: function (ctx, spec) {
-			console.log("ctx", $(ctx).attr('id'));
-			console.log("spec", spec);
             var sel = null;
             if (arguments.length === 1) {
                 sel = ctx.nodeType != null ? ctx : document.querySelectorAll(ctx);

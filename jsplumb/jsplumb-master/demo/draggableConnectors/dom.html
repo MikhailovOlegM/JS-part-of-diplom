@@ -6,15 +6,12 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
-    <!-- <link href="fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="../../css/jsplumbtoolkit-defaults.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/jsplumbtoolkit-demo.css">
     <link rel="stylesheet" href="demo.css">
 
-    <script src="../devices.js"></script>
     <script src="http://www.google.com/jsapi" type="text/javascript"></script>
     <script type="text/javascript">
         google.load("jquery", "1.7.1");
@@ -33,7 +30,6 @@
 </head>
 <body data-demo-id="draggableConnectors">
 <div class="container">
-    <!--<div class="panzoom">-->
 
     <a style="margin:10px 0 0 10px;display:inline-block" href="https://jsplumbtoolkit.com"></a>
 
@@ -41,21 +37,20 @@
         <div id="options"
              style="border: 1px solid #CCC; height: 550px; max-height: 700px; width: 140px; float: left; padding-left: 5px; z-index: 30">
             <div>
-                <details>
-                    <summary>Network Device</summary>
-                    <div id="drag1" class="drag"></div> <!-- end of drag1 -->
-                    <div id="drag2" class="drag"></div> <!-- end of drag2 -->
-                </details>
+                <summary>Network Device</summary>
+                <div id="drag1" data-title="Wi-Fi Router" class="drag"></div> <!-- end of drag1 -->
+                <div id="drag2" class="drag"></div> <!-- end of drag2 -->
+                <div id="drag5" data-title="Server" class="drag"></div> <!-- end of drag2 -->
+                <div id="drag6" class="drag"></div> <!-- end of drag2 -->
             </div>  <!-- end of Network Device -->
             <div>
-                <details>
-                    <summary>End devices</summary>
-                    <div id="drag3" class="drag"></div> <!-- end of drag3 -->
-                    <div id="drag4" class="drag"></div> <!-- end of drag4 -->
-                </details>
+                <summary>End devices</summary>
+                <div id="drag3" class="drag"></div> <!-- end of drag3 -->
+                <div id="drag4" class="drag"></div> <!-- end of drag4 -->
             </div> <!-- end of End Device -->
         </div><!-- end of options -->
         <!-- demo -->
+
         <div class="jtk-demo-canvas canvas-wide drag-drop-demo jtk-surface jtk-surface-nopan" id="canvas">
 
             <div id="list"></div>
@@ -65,45 +60,6 @@
         </div>
         <!-- /explanation -->
 
-        <!-- Modal 1 -->
-        <div class="uk-offcanvas-content">
-
-            <!-- <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-flip">Open</button> -->
-
-            <div id="modal-sections1" uk-offcanvas="flip: true; overlay: true">
-                <div class="uk-offcanvas-bar">
-
-                    <button class="uk-offcanvas-close" type="button" uk-close></button>
-
-                    <h3>Wi-Fi</h3>
-                    <div class="uk-modal-body">
-                        <div class="uk-margin">
-                            Name: <input id="modal1-name_1" class="uk-input uk-form-width-medium uk-form-small"
-                                         type="text" placeholder="Name">
-                        </div>
-                        <div class="uk-margin">
-                            MAC: <input id="modal1-mac-address_1"
-                                        class="uk-input uk-form-width-medium uk-form-small mac-address">
-                        </div>
-                        <div class="uk-margin">
-                            IPv4: <input id="modal1-ipv4_1" class="uk-input uk-form-width-medium uk-form-small ip_address_v4"
-                                         type="text">
-                        </div>
-                        <div class="uk-margin">
-                            IPv6: <input id="modal1-ipv6_1" class="uk-input uk-form-width-medium uk-form-small ip_address_v6"
-                                         type="text">
-                        </div>
-                        <div class="uk-margin">
-                            Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                            <input id="max_speed_1" class="uk-range" type="range" value="15" min="0" max="500" step="5">
-                        </div>
-                        <button id="addConnection" class="uk-button uk-button-primary" type="button">Add Connection
-                        </button>
-                    </div>
-                    <button id="saveBtn_wifi" class="uk-button uk-button-primary" type="button">Save</button>
-                </div>
-            </div>
-        </div>
 
         <!-- Modal 2 -->
         <div id="modal-sections2" uk-modal>
@@ -135,34 +91,74 @@
                 </div>
             </div>
         </div>
-        <!-- Modal 3 -->
-        <div id="modal-sections3" uk-modal>
-            <div class="uk-modal-dialog">
-                <button class="uk-modal-close-default" type="button" uk-close></button>
-                <div class="uk-modal-header">
-                    <h2 class="uk-modal-title">Фиг знает</h2>
-                </div>
+        <!-- router -->
+
+        <div id="router" uk-offcanvas="flip: true; overlay: true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>Wi-Fi Router</h3>
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        Name: <input id="modal1-name_3" class="uk-input uk-form-width-medium uk-form-small" type="text"
-                                     placeholder="Name">
+                        Name: <input id="router_name" class="uk-input uk-form-width-medium uk-form-small"
+                                     type="text" placeholder="Name">
                     </div>
+                    Interface:<br>
+                    <select id="router_interface" class="js-example-basic-single" name="Interface"
+                            style="width: 200px;margin-bottom: 7px; color: #000;">
+                        <option value=""></option>
+                        <option value="Ethernet">Ethernet</option>
+                        <option value="Wi-Fi">IEEE 802.3</option>
+                        <option value="LAN">Token Ring</option>
+                    </select>
                     <div class="uk-margin">
-                        MAC: <input id="modal1-mac-address_3"
+                        MAC: <input id="router_mac"
                                     class="uk-input uk-form-width-medium uk-form-small mac-address">
                     </div>
                     <div class="uk-margin">
-                        IP: <input id="modal1-ip_3" class="uk-input uk-form-width-medium uk-form-small" type="text">
+                        IPv4: <input id="router_ipv4" class="uk-input uk-form-width-medium uk-form-small ip_address_v4"
+                                     type="text">
                     </div>
                     <div class="uk-margin">
-                        Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                        <input id="max_speed_3" class="uk-range" type="range" value="15" min="0" max="500" step="5">
+                        IPv6: <input id="router_ipv6" class="uk-input uk-form-width-medium uk-form-small ip_address_v6"
+                                     type="text">
                     </div>
+                    Routing:<br>
+                    <select id="router_routing" class="js-example-basic-single" name="Routing"
+                            style="width: 200px;margin-bottom: 7px; color: #000;">
+                        <option value=""></option>
+                        <option value="Static">Static</option>
+                        <optgroup label="Dinamic">
+                            <option value="OSPF">OSPF</option>
+                            <option value="RIP">RIP</option>
+                            <option value="IGRP">IGRP</option>
+                            <option value="EIGRP">EIGRP</option>
+                        </optgroup>
+                        <option value="VLAN">VLAN</option>
+                    </select>
+                    ACL:<br>
+                    <select id="router_acl" class="js-example-basic-single" name="Routing"
+                            style="width: 200px;margin-bottom: 7px; color: #000;">
+                        <option value=""></option>
+                        <option value="Income">Income</option>
+                        <option value="Outcome">Outcome</option>
+                    </select>
+                    <label><input id="router_dhcp" class="uk-checkbox" type="checkbox"> DHCP</label><br>
+                    <label><input id="router_nat_check" class="uk-checkbox" type="checkbox"> NAT</label>
+                    <select id="router_nat" class="js-example-basic-single" name="Routing"
+                            style="width: 200px;margin-bottom: 7px; color: #000;" disabled>
+                        <option value=""></option>
+                        <option value="Cone">Cone</option>
+                        <option value="Address-Restricted cone">Address-Restricted cone</option>
+                        <option value="Restricted cone">Restricted cone</option>
+                        <option value="Port-Restricted cone">Port-Restricted cone</option>
+                        <option value="Symmetric">Symmetric</option>
+                    </select>
+
                 </div>
-                <div class="uk-modal-footer uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                    <button class="uk-button uk-button-primary" type="button" onclick="saveFirstModal()">Save</button>
-                </div>
+                <button class="uk-button uk-button-primary addConnection" type="button">Add Connection
+                </button>
             </div>
         </div>
         <!-- Modal 4 -->
@@ -192,84 +188,205 @@
             </div>
         </div>
 
-        <!-- Modal of connection -->
-        <div id="type-of-connection" class="ethrnetRemodal" data-remodal-id="modal">
-            <button data-remodal-action="close" class="remodal-close"></button>
-            <h1>Type of connection:</h1>
-            <select id="selected_type" class="js-example-basic-single" name="state" style="margin-bottom: 7px">
-                <option value=""></option>
-                <option value="Ethernet">Ethernet</option>
-                <option value="Wi-Fi">Wi-Fi 802.11</option>
-                <option value="LAN">LAN</option>
-            </select>
-            <br>
-            <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-            <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+        <!-- Modal wifi router-->
+
+        <div id="wifi_router" uk-offcanvas="flip: true; overlay: true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>Wi-Fi Router</h3>
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        Name: <input id="wifi_name" class="uk-input uk-form-width-medium uk-form-small"
+                                     type="text" placeholder="Name">
+                    </div>
+                    Interface:<br>
+                    <select id="wifi_interface" class="js-example-basic-single" name="Interface"
+                            style="width: 200px;margin-bottom: 7px; color: #000;">
+                        <option value=""></option>
+                        <option value="Ethernet">Ethernet</option>
+                        <option value="Wi-Fi">IEEE 802.3</option>
+                        <option value="LAN">Token Ring</option>
+                    </select>
+                    <div class="uk-margin">
+                        MAC: <input id="wifi_mac"
+                                    class="uk-input uk-form-width-medium uk-form-small mac-address">
+                    </div>
+                    <div class="uk-margin">
+                        IPv4: <input id="wifi_ipv4" class="uk-input uk-form-width-medium uk-form-small ip_address_v4"
+                                     type="text">
+                    </div>
+                    <div class="uk-margin">
+                        IPv6: <input id="wifi_ipv6" class="uk-input uk-form-width-medium uk-form-small ip_address_v6"
+                                     type="text">
+                    </div>
+                    Routing:<br>
+                    <select id="wifi_routing" class="js-example-basic-single" name="Routing"
+                            style="width: 200px;margin-bottom: 7px; color: #000;">
+                        <option value=""></option>
+                        <option value="Static">Static</option>
+                        <optgroup label="Dinamic">
+                            <option value="OSPF">OSPF</option>
+                            <option value="RIP">RIP</option>
+                            <option value="IGRP">IGRP</option>
+                            <option value="EIGRP">EIGRP</option>
+                        </optgroup>
+                        <option value="VLAN">VLAN</option>
+                    </select>
+                    ACL:<br>
+                    <select id="wifi_acl" class="js-example-basic-single" name="Routing"
+                            style="width: 200px;margin-bottom: 7px; color: #000;">
+                        <option value=""></option>
+                        <option value="Income">Income</option>
+                        <option value="Outcome">Outcome</option>
+                    </select>
+                    <label><input id="wifi_dhcp" class="uk-checkbox" type="checkbox"> DHCP</label><br>
+                    <label><input id="wifi_nat_check" class="uk-checkbox" type="checkbox"> NAT</label>
+                    <select id="wifi_nat" class="js-example-basic-single" name="Routing"
+                            style="width: 200px;margin-bottom: 7px; color: #000;" disabled>
+                        <option value=""></option>
+                        <option value="Cone">Cone</option>
+                        <option value="Address-Restricted cone">Address-Restricted cone</option>
+                        <option value="Restricted cone">Restricted cone</option>
+                        <option value="Port-Restricted cone">Port-Restricted cone</option>
+                        <option value="Symmetric">Symmetric</option>
+                    </select>
+
+                </div>
+                <button  class="uk-button uk-button-primary addConnection" type="button">Add Connection
+                </button>
+            </div>
+            <button id="saveBtn_wifi" class="uk-button uk-button-primary" type="button">Save</button>
         </div>
-
-
-        <!-- JS -->
-        <!-- support lib for bezier stuff -->
-        <script src="jsBezier/js/jsbezier.js"></script>
-        <!-- event adapter -->
-        <script src="mottle/js/mottle.js"></script>
-        <!-- geometry functions -->
-        <script src="biltong/src/biltong.js"></script>
-        <!-- drag -->
-        <script src="katavorio/src/katavorio.js"></script>
-        <!-- jsplumb util -->
-        <script src="../../src/util.js"></script>
-        <script src="../../src/browser-util.js"></script>
-        <!-- main jsplumb engine -->
-        <script src="../../src/jsPlumb.js"></script>
-        <!-- base DOM adapter -->
-        <script src="../../src/dom-adapter.js"></script>
-        <script src="../../src/overlay-component.js"></script>
-        <!-- endpoint -->
-        <script src="../../src/endpoint.js"></script>
-        <!-- connection -->
-        <script src="../../src/connection.js"></script>
-        <!-- anchors -->
-        <script src="../../src/anchors.js"></script>
-        <!-- connectors, endpoint and overlays  -->
-        <script src="../../src/defaults.js"></script>
-        <!-- bezier connectors -->
-        <script src="../../src/connectors-bezier.js"></script>
-        <!-- state machine connectors -->
-        <script src="../../src/connectors-statemachine.js"></script>
-        <!-- flowchart connectors -->
-        <script src="../../src/connectors-flowchart.js"></script>
-        <!-- straight connectors -->
-        <script src="../../src/connectors-straight.js"></script>
-        <!-- SVG renderer -->
-        <script src="../../src/renderers-svg.js"></script>
-
-        <!-- common adapter -->
-        <script src="../../src/base-library-adapter.js"></script>
-        <!-- no library jsPlumb adapter -->
-        <script src="../../src/dom.jsPlumb.js"></script>
-        <!-- /JS -->
-        <!-- jquery masck -->
-        <script src="jquery_mask/src/jquery.mask.js"></script>
-        <!--<script src="panzoom/src/panzoom.js"></script>-->
-
-        <!--  demo code -->
-        <script src="demo.js"></script>
-
-            <!--  rendmodal -->
-        <link rel="stylesheet" href="Remodal/dist/remodal.css">
-        <link rel="stylesheet" href="Remodal/dist/remodal-default-theme.css">
-        <script src="Remodal/dist/remodal.min.js"></script>
-
-        <!--select2-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
-
-
-        <script src="../demo-list.js"></script>
     </div>
-    <!--</div>-->
+
+    <!-- Modal server-->
+    <div id="server" uk-offcanvas="flip: true; overlay: true">
+        <div class="uk-offcanvas-bar">
+
+            <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+            <h3>Server</h3>
+            <div class="uk-modal-body">
+                <div class="uk-margin">
+                    Name: <input id="server_name" class="uk-input uk-form-width-medium uk-form-small"
+                                 type="text" placeholder="Name">
+                </div>
+                Interface:<br>
+                <select id="server_interface" class="js-example-basic-single" name="Interface"
+                        style="width: 200px;margin-bottom: 7px; color: #000;">
+                    <option value=""></option>
+                    <option value="Ethernet">Ethernet</option>
+                    <option value="Wi-Fi">IEEE 802.3</option>
+                    <option value="LAN">Token Ring</option>
+                </select>
+                <div class="uk-margin">
+                    MAC: <input id="server_mac"
+                                class="uk-input uk-form-width-medium uk-form-small mac-address">
+                </div>
+                <div class="uk-margin">
+                    IPv4: <input id="server_ipv4" class="uk-input uk-form-width-medium uk-form-small ip_address_v4"
+                                 type="text">
+                </div>
+                <div class="uk-margin">
+                    IPv6: <input id="server_ipv6" class="uk-input uk-form-width-medium uk-form-small ip_address_v6"
+                                 type="text">
+                </div>
+                Service:<br>
+                <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+                    <option value="DHCP">DHCP</option>
+                    <option value="DNS">DNS</option>
+                    <option value="FTP">FTP</option>
+                    <option value="TFTP">TFTP</option>
+                    <option value="DB">DB</option>
+                </select>
+
+
+            </div>
+            <button class="uk-button uk-button-primary addConnection" type="button">Add Connection</button>
+        </div>
+        <button id="saveBtn_server" class="uk-button uk-button-primary" type="button">Save</button>
+    </div>
+</div>
+
+<!-- Modal of connection -->
+<div id="type-of-connection" class="ethrnetRemodal" data-remodal-id="modal">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>Type of connection:</h1>
+    <select id="selected_type" class="js-example-basic-single" name="state" style="margin-bottom: 7px">
+        <option value=""></option>
+        <option value="Ethernet">Ethernet</option>
+        <option value="Wi-Fi">Wi-Fi 802.11</option>
+        <option value="LAN">LAN</option>
+    </select>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+    <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+</div>
+
+
+<!-- JS -->
+<!-- support lib for bezier stuff -->
+<script src="jsBezier/js/jsbezier.js"></script>
+<!-- event adapter -->
+<script src="mottle/js/mottle.js"></script>
+<!-- geometry functions -->
+<script src="biltong/src/biltong.js"></script>
+<!-- drag -->
+<script src="katavorio/src/katavorio.js"></script>
+<!-- jsplumb util -->
+<script src="../../src/util.js"></script>
+<script src="../../src/browser-util.js"></script>
+<!-- main jsplumb engine -->
+<script src="../../src/jsPlumb.js"></script>
+<!-- base DOM adapter -->
+<script src="../../src/dom-adapter.js"></script>
+<script src="../../src/overlay-component.js"></script>
+<!-- endpoint -->
+<script src="../../src/endpoint.js"></script>
+<!-- connection -->
+<script src="../../src/connection.js"></script>
+<!-- anchors -->
+<script src="../../src/anchors.js"></script>
+<!-- connectors, endpoint and overlays  -->
+<script src="../../src/defaults.js"></script>
+<!-- bezier connectors -->
+<script src="../../src/connectors-bezier.js"></script>
+<!-- state machine connectors -->
+<script src="../../src/connectors-statemachine.js"></script>
+<!-- flowchart connectors -->
+<script src="../../src/connectors-flowchart.js"></script>
+<!-- straight connectors -->
+<script src="../../src/connectors-straight.js"></script>
+<!-- SVG renderer -->
+<script src="../../src/renderers-svg.js"></script>
+
+<!-- common adapter -->
+<script src="../../src/base-library-adapter.js"></script>
+<!-- no library jsPlumb adapter -->
+<script src="../../src/dom.jsPlumb.js"></script>
+<!-- /JS -->
+<!-- jquery masck -->
+<script src="jquery_mask/src/jquery.mask.js"></script>
+
+
+<!--  demo code -->
+<script src="demo.js"></script>
+
+<!--  rendmodal -->
+<link rel="stylesheet" href="Remodal/dist/remodal.css">
+<link rel="stylesheet" href="Remodal/dist/remodal-default-theme.css">
+<script src="Remodal/dist/remodal.min.js"></script>
+
+<!--select2-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+
+<script src="../demo-list.js"></script>
+</div>
+<!--</div>-->
 
 </body>
 </html>

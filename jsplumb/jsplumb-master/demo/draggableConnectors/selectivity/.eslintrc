@@ -1,0 +1,53 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "phantomjs": true
+    },
+    "extends": ["eslint:recommended", "prettier"],
+    "globals": {
+        "window": false,
+        "Comment": true,
+        "Promise": true
+    },
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "constructor-super": "error",
+        "linebreak-style": ["error", "unix"],
+        "new-cap": "error",
+        "no-catch-shadow": "error",
+        "no-class-assign": "error",
+        "no-console": 0,
+        "no-const-assign": "error",
+        "no-delete-var": "error",
+        "no-dupe-class-members": "error",
+        "no-label-var": "error",
+        "no-this-before-super": "error",
+        "no-undef": "error",
+        "no-undef-init": "error",
+        "no-unused-vars": "error",
+        "no-use-before-define": ["error", { "classes": false, "functions": false }],
+        "no-useless-constructor": "error",
+        "prefer-const": "error",
+        "prettier/prettier": [
+            "error",
+            {
+                "bracketSpacing": true,
+                "jsxBracketSameLine": true,
+                "parser": "babylon",
+                "printWidth": 100,
+                "singleQuote": true,
+                "semi": true,
+                "tabWidth": 4,
+                "trailingComma": "none"
+            }
+        ],
+        "require-yield": "error",
+        "semi": ["error", "always"],
+        "spaced-comment": ["error", "always", { "markers": ["/"] }],
+        "strict": ["error", "global"],
+        "yoda": "error"
+    }
+}

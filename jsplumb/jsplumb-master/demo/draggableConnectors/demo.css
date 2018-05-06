@@ -22,16 +22,6 @@
 .uk-offcanvas-content{
   width: 350px;
 }
-/*.panzoom {*/
-  /*position: absolute;*/
-  /*width:500px;*/
-  /*height:250px;*/
-  /*background-color: rgba(blue,.1);*/
-  /*left: 50px;*/
-  /*top: 20px;*/
-  /*overflow: visible;*/
-  /*border: 5px dotted rgba(#CCC,.1);*/
-/*}*/
 
 /** ELEMENT POSITIONS **/
 #dragDropWindow1 { top:62px; left:62px; content:url("monitor.png"); width: 64px; height: 64px;}
@@ -42,11 +32,23 @@
 #drag1 {
 	margin-left:15px;
 	margin-top:15px;
-	background-image: url("../draggableConnectors/images/1-wifi.png");
+    background-image: url("../draggableConnectors/images/1-wifi.png");
 	width:32px;
 	height:32px;
 	z-index: 31;
 }
+
+/*#drag1:hover::after{*/
+    /*content: attr(data-title); !* Выводим текст *!*/
+    /*position: absolute; !* Абсолютное позиционирование *!*/
+    /*left: 10px; top: 10px; !* Положение подсказки *!*/
+    /*z-index: 1; !* Отображаем подсказку поверх других элементов *!*/
+    /*background: rgba(255,255,230,0.9); !* Полупрозрачный цвет фона *!*/
+    /*font-family: Arial, sans-serif; !* Гарнитура шрифта *!*/
+    /*font-size: 11px; !* Размер текста подсказки *!*/
+    /*padding: 5px 10px; !* Поля *!*/
+    /*border: 1px solid #333; !* Параметры рамки *!*/
+/*}*/
 
 #drag2 {
 	margin-left:15px;
@@ -73,6 +75,35 @@
 	width:32px;
 	height:32px;
 	z-index: 31;
+}
+
+#drag5 {
+	margin-left:15px;
+	margin-top:15px;
+	background-image: url("../draggableConnectors/images/5-server.png");
+	width:32px;
+	height:32px;
+	z-index: 31;
+}
+
+/*#drag5:hover::after{*/
+    /*content: attr(data-title); !* Выводим текст *!*/
+    /*position: absolute; !* Абсолютное позиционирование *!*/
+    /*z-index: 1; !* Отображаем подсказку поверх других элементов *!*/
+    /*background: rgba(255,255,230,0.9); !* Полупрозрачный цвет фона *!*/
+    /*font-family: Arial, sans-serif; !* Гарнитура шрифта *!*/
+    /*font-size: 11px; !* Размер текста подсказки *!*/
+    /*padding: 5px 10px; !* Поля *!*/
+    /*border: 1px solid #333; !* Параметры рамки *!*/
+/*}*/
+
+#drag6 {
+    margin-left:15px;
+    margin-top:15px;
+    background-image: url("../draggableConnectors/images/6-router.png");
+    width:32px;
+    height:32px;
+    z-index: 31;
 }
 
 
@@ -103,6 +134,20 @@
 	background-image: url("../draggableConnectors/images/4-network.png");
 	width:32px;
 	height:32px;
+}
+
+.dragged5 {
+    position:absolute;
+    background-image: url("../draggableConnectors/images/5-server-dropped.png");
+    width:32px;
+    height:32px;
+}
+
+.dragged6    {
+    position:absolute;
+    background-image: url("../draggableConnectors/images/6-router-dragged.png");
+    width:32px;
+    height:32px;
 }
 
 

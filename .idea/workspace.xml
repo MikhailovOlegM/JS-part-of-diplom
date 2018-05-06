@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f10ab99-f7eb-4e91-9230-126681734bdc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/JS-part-of-diplom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JS-part-of-diplom.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="6515f6ab-f11c-404e-a968-05b298df457a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html" beforeDir="false" afterPath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/images/cf_32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/images/dw_32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/images/fla_32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/images/flex_32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/images/pdf_32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/images/ps_32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsplumb/jsplumb-master/src/dom-adapter.js" beforeDir="false" afterPath="$PROJECT_DIR$/jsplumb/jsplumb-master/src/dom-adapter.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,14 +28,45 @@
     <leaf>
       <file leaf-file-name="demo.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="875">
+              <caret line="229" column="15" lean-forward="true" selection-start-line="229" selection-start-column="15" selection-end-line="229" selection-end-column="15" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="dom.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="225" column="48" lean-forward="true" selection-start-line="225" selection-start-column="48" selection-end-line="225" selection-end-column="48" />
+            <state relative-caret-position="586">
+              <caret line="95" column="23" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#2;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#3;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demo.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+              <folding>
+                <marker date="1525610764047" expanded="true" signature="675:1230" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,8 +75,28 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>jsBezier</find>
       <find>zoom</find>
-      <find>modal1-name</find>
+      <find>wi-fi</find>
+      <find>selectivity</find>
+      <find>modal1-name_1</find>
+      <find>mySe</find>
+      <find>mySelect</find>
+      <find>jquer</find>
+      <find>dragged4</find>
+      <find>modal-sections2</find>
+      <find>addConnectedDev</find>
+      <find>dragged3</find>
+      <find>id=&quot;addConnection&quot;</find>
+      <find>addConnection</find>
+      <find>server</find>
+      <find>router</find>
+      <find>dragged6</find>
+      <find>wifi_router</find>
+      <find>router_modal</find>
+      <find>uk-offcanvas-bar</find>
+      <find>uk-offcanvas-content</find>
+      <find>dragged1</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -50,6 +105,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/jsplumb/jsplumb-master/src/dom-adapter.js" />
+        <option value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.css" />
+        <option value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html" />
         <option value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js" />
       </list>
     </option>
@@ -60,18 +118,34 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1939" />
-    <option name="y" value="-19" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/Remodal/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/biltong/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/bootstrap/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/jquery_mask/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/jqueryui/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/jsBezier/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/katavorio/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/mottle/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/selectivity/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/webpack/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/package.json" />
+      <path value="$PROJECT_DIR$/jsplumb/jsplumb-master/tests/experiments/npm/package.json" />
+    </packageJsonPaths>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="260" />
+    <option name="y" value="24" />
+    <option name="width" value="1400" />
+    <option name="height" value="1028" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -109,18 +183,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.prettier" value="true" />
-    <property name="node.js.path.for.package.prettier" value="project" />
-    <property name="node.js.selected.package.prettier" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSHint" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -134,40 +203,32 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="demo.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="demo.js" working-dir="$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors" />
-    <recent_temporary>
-      <list>
-        <item itemvalue="Node.js.demo.js" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2f10ab99-f7eb-4e91-9230-126681734bdc" name="Default" comment="" />
-      <created>1525243971512</created>
+      <changelist id="6515f6ab-f11c-404e-a968-05b298df457a" name="Default" comment="" />
+      <created>1525594042898</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1525243971512</updated>
-      <workItem from="1525243974996" duration="754000" />
+      <updated>1525594042898</updated>
+      <workItem from="1525594045450" duration="21396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="754000" />
+    <option name="totallyTimeSpent" value="21396000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1828125" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986821" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32987747" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
@@ -188,19 +249,83 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/selectivity/src/dropdown.js</url>
+          <properties lambdaOrdinal="-1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.css">
+    <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/selectivity/src/dropdown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="31" column="21" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/src/dom-adapter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="472" selection-start-line="472" selection-end-line="472" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/selectivity/src/selectivity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1705">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/css.css">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+          <folding>
+            <marker date="1525610764047" expanded="true" signature="675:1230" ph="..." />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/dom.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="225" column="48" lean-forward="true" selection-start-line="225" selection-start-column="48" selection-end-line="225" selection-end-column="48" />
+        <state relative-caret-position="586">
+          <caret line="95" column="23" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#2;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#3;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jsplumb/jsplumb-master/demo/draggableConnectors/demo.js">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="875">
+          <caret line="229" column="15" lean-forward="true" selection-start-line="229" selection-start-column="15" selection-end-line="229" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

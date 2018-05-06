@@ -1,0 +1,13 @@
+build
+release
+src/selectivity-custom.js
+styles/selectivity-custom.sass
+
+.sass-cache
+node_modules
+
+# OS X mess
+.DS_Store
+
+# Sublime Text files
+selectivity.sublime-*
