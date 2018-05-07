@@ -62,7 +62,7 @@
 #drag3 {
 	margin-left:15px;
 	margin-top:15px;
-	background-image: url("../draggableConnectors/images/3-router.png");
+	background-image: url("../draggableConnectors/images/7-switch.png");
 	width:32px;
 	height:32px;
 	z-index: 31;
@@ -124,7 +124,7 @@
 
 .dragged3 {
 	position:absolute;
-	background-image: url("../draggableConnectors/images/3-router.png");
+	background-image: url("../draggableConnectors/images/7-siwtch-dragged.png");
 	width:32px;
 	height:32px;
 }
@@ -205,6 +205,12 @@
 .dragActive { border:2px dotted orange; }
 .dropHover { border:1px dotted red; }
 
+
+.background_groups {
+    background-color: #676767;
+    width: 215px;
+    height: 90px;
+}
 /** INFO WINDOW **/
 #list {
     text-align: center;

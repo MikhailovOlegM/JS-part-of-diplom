@@ -193,17 +193,13 @@ $(document).ready(function () {
                     case "dragged1":
                         UIkit.offcanvas("#wifi_router").show();
                         break;
-                    case "dragged2":
-                        var modal = UIkit.offcanvas("#modal-sections2");
-                        modal.show();
-                        break;
                     case "dragged3":
-                        var modal = UIkit.offcanvas("#modal-sections3");
+                        var modal = UIkit.offcanvas("#switch");
                         modal.show();
                         break;
                     case "dragged4":
-                        var modal = UIkit.offcanvas("#modal-sections4");
-                        modal.show();
+                        // var modal = UIkit.offcanvas("#lan");
+                        // modal.show();
                         break;
                     case "dragged5":
                         var modal = UIkit.offcanvas("#server");
@@ -276,6 +272,12 @@ $(document).ready(function () {
                     $("#wifi_nat").val('');
                 }
             })
+
+
+            /////////////////////add vlan btn//////////////////////////////////
+            $('#add_vlan_btn').click(function () {
+
+            });
             ///////////////////add connection button///////////////////////////
             var inst = $('#type-of-connection').remodal();
             $('.addConnection').click(function () {
@@ -326,7 +328,7 @@ $(document).ready(function () {
             });
 
             instance.bind("dblclick", function (component, originalEvent) {
-                jsPlumb.detach($this);
+                jsPlumb.deleteConnection(component);
             });
 
             // configure some drop options for use by all endpoints.
@@ -349,6 +351,13 @@ $(document).ready(function () {
             // there is a 'beforeDrop' interceptor on this endpoint which is used to allow the user to decide whether
             // or not to allow a particular connection to be established.
             //
+            var detachLinks = jsPlumb.getSelector(".drag-drop-demo .detach");
+            instance.on(detachLinks, "click", function (e) {
+                console.log("detachLinks", detachLinks);
+                instance.detachAllConnections(this.getAttribute("rel"));
+                jsPlumbUtil.consume(e);
+            });
+
             var EthernetColor = "#00f";
             var EthernetConnetion = {
                 endpoint: "Rectangle",
@@ -359,10 +368,10 @@ $(document).ready(function () {
                 connector: ["Bezier", {curviness: 63}],
                 maxConnections: 2,
                 isTarget: true,
-                beforeDrop: function (params) {
-                    return confirm("Connect " + params.sourceId + " to " + params.targetId
-                        + "?");
-                },
+                // beforeDrop: function (params) {
+                //     return confirm("Connect " + params.sourceId + " to " + params.targetId
+                //         + "?");
+                // },
                 dropOptions: exampleDropOptions
             };
 
@@ -386,10 +395,7 @@ $(document).ready(function () {
                     dashstyle: "2 2"
                 },
                 isTarget: true,
-                beforeDrop: function (params) {
-                    return confirm("Connect " + params.sourceId + " to " + params.targetId
-                        + "?");
-                },
+
                 dropOptions: exampleDropOptions
             };
 
@@ -402,11 +408,11 @@ $(document).ready(function () {
                 connectorStyle: {stroke: LanColor, strokeWidth: 6},
                 connector: ["Bezier", {curviness: 63}],
                 maxConnections: 2,
+                // beforeDetach: function (conn) {
+                //     return confirm("Detach connection?");
+                // },
                 isTarget: true,
-                beforeDrop: function (params) {
-                    return confirm("Connect " + params.sourceId + " to " + params.targetId
-                        + "?");
-                },
+
                 dropOptions: exampleDropOptions
             };
 

@@ -40,12 +40,12 @@
                 <summary>Network Device</summary>
                 <div id="drag1" data-title="Wi-Fi Router" class="drag"></div> <!-- end of drag1 -->
                 <div id="drag2" class="drag"></div> <!-- end of drag2 -->
+                <div id="drag3" class="drag"></div> <!-- end of drag3 -->
                 <div id="drag5" data-title="Server" class="drag"></div> <!-- end of drag2 -->
                 <div id="drag6" class="drag"></div> <!-- end of drag2 -->
             </div>  <!-- end of Network Device -->
             <div>
                 <summary>End devices</summary>
-                <div id="drag3" class="drag"></div> <!-- end of drag3 -->
                 <div id="drag4" class="drag"></div> <!-- end of drag4 -->
             </div> <!-- end of End Device -->
         </div><!-- end of options -->
@@ -61,36 +61,6 @@
         <!-- /explanation -->
 
 
-        <!-- Modal 2 -->
-        <div id="modal-sections2" uk-modal>
-            <div class="uk-modal-dialog">
-                <button class="uk-modal-close-default" type="button" uk-close></button>
-                <div class="uk-modal-header">
-                    <h2 class="uk-modal-title">Modem</h2>
-                </div>
-                <div class="uk-modal-body">
-                    <div class="uk-margin">
-                        Name: <input id="modal1-name_2" class="uk-input uk-form-width-medium uk-form-small" type="text"
-                                     placeholder="Name">
-                    </div>
-                    <div class="uk-margin">
-                        MAC: <input id="modal1-mac-address_2"
-                                    class="uk-input uk-form-width-medium uk-form-small mac-address">
-                    </div>
-                    <div class="uk-margin">
-                        IP: <input id="modal1-ip_2" class="uk-input uk-form-width-medium uk-form-small" type="text">
-                    </div>
-                    <div class="uk-margin">
-                        Max speed: <br> <span class="max_speed_value" text="15"></span> Mb/s
-                        <input id="max_speed_2" class="uk-range" type="range" value="15" min="0" max="500" step="5">
-                    </div>
-                </div>
-                <div class="uk-modal-footer uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                    <button class="uk-button uk-button-primary" type="button">Save</button>
-                </div>
-            </div>
-        </div>
         <!-- router -->
 
         <div id="router" uk-offcanvas="flip: true; overlay: true">
@@ -155,6 +125,51 @@
                         <option value="Port-Restricted cone">Port-Restricted cone</option>
                         <option value="Symmetric">Symmetric</option>
                     </select>
+
+                </div>
+                <button class="uk-button uk-button-primary addConnection" type="button">Add Connection
+                </button>
+            </div>
+        </div>
+
+        <!-- switch -->
+
+        <div id="switch" uk-offcanvas="flip: true; overlay: true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>Wi-Fi Router</h3>
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        Name: <input id="switch_name" class="uk-input uk-form-width-medium uk-form-small"
+                                     type="text" placeholder="Name">
+                    </div>
+                    STP:
+                    <select id="switch_stp" class="js-example-basic-single" name="Routing"
+                            style="width: 200px;margin-bottom: 7px; color: #000;">
+                        <option value=""></option>
+                        <option value="access port">access port</option>
+                        <option value="trunk port">trunk port</option>
+                    </select>
+                    <div id="all_vlan">
+                        VLAN:
+                        <div id="vlan_goup" class="background_groups">
+                            <select id="switch_vlan_1" class="js-example-basic-single" name="Routing"
+                                    style="width: 200px;margin-bottom: 7px; color: #000;">
+                                <option value=""></option>
+                                <option value="RSTP">RSTP</option>
+                                <option value="SPB">SPB</option>
+                            </select>
+                            Port: <input id="switch_vlanport_1" class="uk-input uk-form-width-medium uk-form-small"
+                                         type="text">
+                        </div>
+
+                        <ul id="add_vlan_btn" class="uk-iconnav" style="margin-top: 5px">
+                            <li><a onclick="" uk-icon="icon: plus-circle"></a></li>
+                        </ul>
+                    </div>
+
 
                 </div>
                 <button class="uk-button uk-button-primary addConnection" type="button">Add Connection
