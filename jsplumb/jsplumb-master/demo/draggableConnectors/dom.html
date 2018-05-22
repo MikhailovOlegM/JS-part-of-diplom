@@ -29,46 +29,139 @@
 
 </head>
 <body data-demo-id="draggableConnectors">
-<div class="container">
+<div class="uk-container-large">
 
     <a style="margin:10px 0 0 10px;display:inline-block" href="https://jsplumbtoolkit.com"></a>
 
     <div class="jtk-demo-main">
         <div id="options"
              style="border: 1px solid #CCC; height: 550px; max-height: 700px; width: 140px; float: left; padding-left: 5px; z-index: 30">
+            <br>
             <div>
                 <summary>Network Device</summary>
-                <div id="drag1" data-title="Wi-Fi Router" class="drag"></div> <!-- end of drag1 -->
-                <div id="drag2" class="drag"></div> <!-- end of drag2 -->
-                <div id="drag3" class="drag"></div> <!-- end of drag3 -->
-                <div id="drag5" data-title="Server" class="drag"></div> <!-- end of drag2 -->
-                <div id="drag6" class="drag"></div> <!-- end of drag2 -->
-            </div>  <!-- end of Network Device -->
-            <div>
+                <div id="drag1" class="drag" uk-tooltip="Wi-Ri router"></div>
+                <div id="drag6" class="drag" uk-tooltip="Router"></div>
+                <div id="drag3" class="drag" uk-tooltip="Switch"></div>
+                <div id="drag5" class="drag" uk-tooltip="Server"></div>
+            </div>
+            <div><br>
                 <summary>End devices</summary>
-                <div id="drag4" class="drag"></div> <!-- end of drag4 -->
-            </div> <!-- end of End Device -->
-        </div><!-- end of options -->
-        <!-- demo -->
+                <div id="drag2" class="drag" uk-tooltip="LAN group"></div>
+
+            </div>
+        </div>
 
         <div class="jtk-demo-canvas canvas-wide drag-drop-demo jtk-surface jtk-surface-nopan" id="canvas">
 
             <div id="list"></div>
         </div>
-        <div style="text-align: right">
+
+        <a download="info.txt" id="downloadlink" style="display: block; text-align: right">
             <button id="saveResultBtn" class="uk-button uk-button-primary">Save</button>
-        </div>
+        </a>
+
         <!-- /explanation -->
 
 
-        <!-- router -->
-
-        <div id="router" uk-offcanvas="flip: true; overlay: true">
+        <!-- switch -->
+        <div id="switch" class="modal_hide" uk-offcanvas="flip: true; overlay: true">
             <div class="uk-offcanvas-bar">
 
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
 
-                <h3>Wi-Fi Router</h3>
+                <h3>Switch</h3>
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        Name: <input id="switch_name" class="uk-input uk-form-width-medium uk-form-small"
+                                     type="text" placeholder="Name">
+                    </div>
+                    STP:
+                    <select id="switch_stp" class="js-example-basic-single" name="Routing"
+                            style="width: 200px;margin-bottom: 7px; color: #000;">
+                        <option value=""></option>
+                        <option value="access port">access port</option>
+                        <option value="trunk port">trunk port</option>
+                    </select>
+                    <div id="all_vlan">
+                        VLAN:
+                        <div>
+                            <div id="vlan_goup" class="background_groups uk-border-rounded">
+                                <select id="switch_vlan_1" class="js-example-basic-single select-vlan vlan-group"
+                                        name="Routing"
+                                        style="width: 200px !important; color: #000;">
+                                    <option value="Select type"></option>
+                                    <option value="RSTP">RSTP</option>
+                                    <option value="SPB">SPB</option>
+                                </select>
+                                <input id="switch_vlanport_1"
+                                       class="uk-input uk-form-width-medium uk-form-small vlan-group"
+                                       type="text" placeholder="Port">
+                            </div>
+                        </div>
+                        <ul id="add_vlan_btn" class="uk-iconnav" style="margin-top: 5px">
+                            <li><a onclick="" uk-icon="icon: plus-circle"></a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                <button class="uk-button uk-button-primary addConnection systemBtn" type="button">Add Connection
+                </button>
+                <button id="delete_switch" class="uk-button uk-button-danger systemBtn deleteBtn" type="button">
+                    Delete
+                </button>
+            </div>
+        </div>
+
+        <!-- LAN Device-->
+
+        <div id="lan_device" class="modal_hide" uk-offcanvas="flip: true; overlay: true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>LAN group</h3>
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        Name: <input id="lan_name" class="uk-input uk-form-width-medium uk-form-small"
+                                     type="text" placeholder="Name">
+                    </div>
+                    <div class="uk-margin">
+                        Count of devices: <input type="number" id="lan_count" min="1" max="100" value="1"
+                                                 class="uk-form-width-mini uk-form-small number-input">
+                    </div>
+                    Static addresses:</br>
+
+                    <div id="static_goup" class="background_groups uk-border-rounded">
+                        <input id="lan_static_name" style="margin-top: 10px;"
+                               class="uk-input uk-form-width-medium uk-form-small"
+                               type="text" placeholder="Name"></br>
+                        <input id="lan_static_ip" class="uk-input uk-form-width-medium uk-form-small ip_address_v4"
+                               type="text" placeholder="Ip">
+                    </div>
+                    <ul id="add_static_btn" class="uk-iconnav" style="margin-top: 5px">
+                        <li><a onclick="" uk-icon="icon: plus-circle"></a></li>
+                    </ul>
+
+                    <button class="uk-button uk-button-primary addConnection systemBtn" type="button">Add Connection
+                    </button>
+                    <button id="delete_lan" class="uk-button uk-button-danger systemBtn deleteBtn" type="button">
+                        Delete
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- router -->
+
+        <div id="router" class="modal_hide" uk-offcanvas="flip: true; overlay: true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>Router</h3>
                 <div class="uk-modal-body">
                     <div class="uk-margin">
                         Name: <input id="router_name" class="uk-input uk-form-width-medium uk-form-small"
@@ -79,7 +172,7 @@
                             style="width: 200px;margin-bottom: 7px; color: #000;">
                         <option value=""></option>
                         <option value="Ethernet">Ethernet</option>
-                        <option value="Wi-Fi">IEEE 802.3</option>
+                        <option value="Wi-Fi">IEEE 802.11</option>
                         <option value="LAN">Token Ring</option>
                     </select>
                     <div class="uk-margin">
@@ -116,69 +209,40 @@
                     </select>
                     <label><input id="router_dhcp" class="uk-checkbox" type="checkbox"> DHCP</label><br>
                     <label><input id="router_nat_check" class="uk-checkbox" type="checkbox"> NAT</label>
-                    <select id="router_nat" class="js-example-basic-single" name="Routing"
-                            style="width: 200px;margin-bottom: 7px; color: #000;" disabled>
-                        <option value=""></option>
-                        <option value="Cone">Cone</option>
-                        <option value="Address-Restricted cone">Address-Restricted cone</option>
-                        <option value="Restricted cone">Restricted cone</option>
-                        <option value="Port-Restricted cone">Port-Restricted cone</option>
-                        <option value="Symmetric">Symmetric</option>
-                    </select>
-
+                    <div id="hide_router_nat" class="hide_router_nat">
+                        <select id="router_nat" class="js-example-basic-single" name="Routing"
+                                style="width: 200px;margin-bottom: 7px; color: #000;" disabled>
+                            <option value=""></option>
+                            <option value="Cone">Cone</option>
+                            <option value="Address-Restricted cone">Address-Restricted cone</option>
+                            <option value="Restricted cone">Restricted cone</option>
+                            <option value="Port-Restricted cone">Port-Restricted cone</option>
+                            <option value="Symmetric">Symmetric</option>
+                        </select>
+                    </div>
+                    <br>
+                    <label><input id="router_redundancy_check" class="uk-checkbox" type="checkbox"> VRRP</label>
+                    <div id="hide_router_redundancy" class="hide_router_redundancy">
+                        <select id="router_redundancy_role" class="js-example-basic-single" name="redundancy"
+                                style="width: 200px;margin-bottom: 7px; color: #000;">
+                            <option value=""></option>
+                            <option value="Main">Main</option>
+                            <option value="Reserve">Reserve</option>
+                        </select>
+                        <select id="router_redundancy_other" class="js-example-basic-multiple"
+                                name="router_redundancy_other[]" multiple="multiple">
+                        </select>
+                    </div>
                 </div>
-                <button class="uk-button uk-button-primary addConnection" type="button">Add Connection
+                <button class="uk-button uk-button-primary addConnection systemBtn" type="button">Add Connection
                 </button>
-            </div>
-        </div>
-
-        <!-- switch -->
-
-        <div id="switch" uk-offcanvas="flip: true; overlay: true">
-            <div class="uk-offcanvas-bar">
-
-                <button class="uk-offcanvas-close" type="button" uk-close></button>
-
-                <h3>Wi-Fi Router</h3>
-                <div class="uk-modal-body">
-                    <div class="uk-margin">
-                        Name: <input id="switch_name" class="uk-input uk-form-width-medium uk-form-small"
-                                     type="text" placeholder="Name">
-                    </div>
-                    STP:
-                    <select id="switch_stp" class="js-example-basic-single" name="Routing"
-                            style="width: 200px;margin-bottom: 7px; color: #000;">
-                        <option value=""></option>
-                        <option value="access port">access port</option>
-                        <option value="trunk port">trunk port</option>
-                    </select>
-                    <div id="all_vlan">
-                        VLAN:
-                        <div id="vlan_goup" class="background_groups">
-                            <select id="switch_vlan_1" class="js-example-basic-single" name="Routing"
-                                    style="width: 200px;margin-bottom: 7px; color: #000;">
-                                <option value=""></option>
-                                <option value="RSTP">RSTP</option>
-                                <option value="SPB">SPB</option>
-                            </select>
-                            Port: <input id="switch_vlanport_1" class="uk-input uk-form-width-medium uk-form-small"
-                                         type="text">
-                        </div>
-
-                        <ul id="add_vlan_btn" class="uk-iconnav" style="margin-top: 5px">
-                            <li><a onclick="" uk-icon="icon: plus-circle"></a></li>
-                        </ul>
-                    </div>
-
-
-                </div>
-                <button class="uk-button uk-button-primary addConnection" type="button">Add Connection
+                <button id="delete_router" class="uk-button uk-button-danger systemBtn deleteBtn" type="button">Delete
                 </button>
             </div>
         </div>
         <!-- Modal wifi router-->
 
-        <div id="wifi_router" uk-offcanvas="flip: true; overlay: true">
+        <div id="wifi_router" class="modal_hide" uk-offcanvas="flip: true; overlay: true">
             <div class="uk-offcanvas-bar">
 
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
@@ -194,7 +258,7 @@
                             style="width: 200px;margin-bottom: 7px; color: #000;">
                         <option value=""></option>
                         <option value="Ethernet">Ethernet</option>
-                        <option value="Wi-Fi">IEEE 802.3</option>
+                        <option value="Wi-Fi">IEEE 802.11</option>
                         <option value="LAN">Token Ring</option>
                     </select>
                     <div class="uk-margin">
@@ -231,26 +295,28 @@
                     </select>
                     <label><input id="wifi_dhcp" class="uk-checkbox" type="checkbox"> DHCP</label><br>
                     <label><input id="wifi_nat_check" class="uk-checkbox" type="checkbox"> NAT</label>
-                    <select id="wifi_nat" class="js-example-basic-single" name="Routing"
-                            style="width: 200px;margin-bottom: 7px; color: #000;" disabled>
-                        <option value=""></option>
-                        <option value="Cone">Cone</option>
-                        <option value="Address-Restricted cone">Address-Restricted cone</option>
-                        <option value="Restricted cone">Restricted cone</option>
-                        <option value="Port-Restricted cone">Port-Restricted cone</option>
-                        <option value="Symmetric">Symmetric</option>
-                    </select>
-
+                    <div id="hide_wifi_nat" class="hide_wifi_nat">
+                        <select id="wifi_nat" class="js-example-basic-single" name="Routing"
+                                style="width: 200px;margin-bottom: 7px; color: #000;" disabled>
+                            <option value=""></option>
+                            <option value="Cone">Cone</option>
+                            <option value="Address-Restricted cone">Address-Restricted cone</option>
+                            <option value="Restricted cone">Restricted cone</option>
+                            <option value="Port-Restricted cone">Port-Restricted cone</option>
+                            <option value="Symmetric">Symmetric</option>
+                        </select>
+                    </div>
                 </div>
-                <button class="uk-button uk-button-primary addConnection" type="button">Add Connection
+                <button class="uk-button uk-button-primary addConnection systemBtn" type="button">Add Connection
+                </button>
+                <button id="delete_wifi" class="uk-button uk-button-danger systemBtn deleteBtn" type="button">Delete
                 </button>
             </div>
-            <button id="saveBtn_wifi" class="uk-button uk-button-primary" type="button">Save</button>
         </div>
     </div>
 
     <!-- Modal server-->
-    <div id="server" uk-offcanvas="flip: true; overlay: true">
+    <div id="server" class="modal_hide" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar">
 
             <button class="uk-offcanvas-close" type="button" uk-close></button>
@@ -266,7 +332,7 @@
                         style="width: 200px;margin-bottom: 7px; color: #000;">
                     <option value=""></option>
                     <option value="Ethernet">Ethernet</option>
-                    <option value="Wi-Fi">IEEE 802.3</option>
+                    <option value="Wi-Fi">IEEE 802.11</option>
                     <option value="LAN">Token Ring</option>
                 </select>
                 <div class="uk-margin">
@@ -282,7 +348,8 @@
                                  type="text">
                 </div>
                 Service:<br>
-                <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+
+                <select id="server_service" class="js-example-basic-multiple" name="states[]" multiple="multiple">
                     <option value="DHCP">DHCP</option>
                     <option value="DNS">DNS</option>
                     <option value="FTP">FTP</option>
@@ -326,9 +393,11 @@
 
 
             </div>
-            <button class="uk-button uk-button-primary addConnection" type="button">Add Connection</button>
+            <button class="uk-button uk-button-primary addConnection systemBtn" type="button">Add Connection</button>
+            <button id="delete_server" class="uk-button uk-button-danger systemBtn deleteBtn" type="button">Delete
+            </button>
+
         </div>
-        <button id="saveBtn_server" class="uk-button uk-button-primary" type="button">Save</button>
     </div>
 </div>
 
@@ -336,7 +405,7 @@
 <div id="type-of-connection" class="ethrnetRemodal" data-remodal-id="modal">
     <button data-remodal-action="close" class="remodal-close"></button>
     <h1>Type of connection:</h1>
-    <select id="selected_type" class="js-example-basic-single" name="state" style="margin-bottom: 7px">
+    <select id="selected_type" class="connection_add" name="state">
         <option value=""></option>
         <option value="Ethernet">Ethernet</option>
         <option value="Wi-Fi">Wi-Fi 802.11</option>

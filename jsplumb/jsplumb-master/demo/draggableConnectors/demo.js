@@ -1,31 +1,104 @@
-// import {WiFi} from 'devices';
-// import {hello} from 'devices';
-
 //////////// objects ////////////
 var mapOfDevices = new Map();
+var mapOfModalWindow = new Map();
 
-function WiFi(id, name, mac, IPv4, IPv6, speed) {
+
+function saveModalWidnow(elementId, modal) {
+    if (elementId != null && modal != null) {
+        console.log('put modal to map');
+        mapOfModalWindow.set(elementId, modal);
+    }
+}
+
+function WiFi(type, id, name, interfaces, mac, IPv4, IPv6, routuing, acl, dhcp, nat) {
+    this.type = type;
     this.id = id;
     this.name = name;
+    this.interface = interfaces;
     this.mac = mac;
     this.IPv4 = IPv4;
     this.IPv6 = IPv6;
-    this.speed = speed;
+    this.routing = routuing;
+    this.acl = acl;
+    this.dhcp = dhcp;
+    this.nat = nat;
     this.connectedDevice = [];
-    // this.addConnectedDev = function (deviceId) {
-    //     this.connectedDevice.push(deviceId);
-    // };
+}
+
+function Switch(type, id, name, stp) {
+    this.type = type;
+    this.id = id;
+    this.name = name;
+    this.stp = stp;
+    this.vlan_group = [];
+    this.connectedDevice = [];
+}
+
+function VlanGroup(type, port) {
+    this.type = type;
+    this.port = port;
+}
+
+function Lan(type, id, name, count) {
+    this.type = type;
+    this.id = id;
+    this.count = count;
+    this.name = name;
+    this.staticAdresses = [];
+    this.connectedDevice = [];
+}
+
+function staticLan(name, ip) {
+    this.name = name;
+    this.ip = ip;
+}
+
+function Router(type, id, name, interfaces, mac, IPv4, IPv6, routuing, acl, dhcp, nat) {
+    this.type = type;
+    this.id = id;
+    this.name = name;
+    this.interface = interfaces;
+    this.mac = mac;
+    this.IPv4 = IPv4;
+    this.IPv6 = IPv6;
+    this.routing = routuing;
+    this.acl = acl;
+    this.dhcp = dhcp;
+    this.nat = nat;
+    this.vrrp = [];
+    this.connectedDevice = [];
+}
+
+function VRRP(type, addresses) {
+    this.type = type;
+    this.addresses = addresses;
+}
+
+function Server(type, id, name, interfaces, mac, IPv4, IPv6, service, os) {
+    this.type = type;
+    this.id = id;
+    this.name = name;
+    this.interface = interfaces;
+    this.mac = mac;
+    this.IPv4 = IPv4;
+    this.IPv6 = IPv6;
+    this.service = service;
+    this.os = os;
+    this.connectedDevice = [];
+}
+
+function getDeviceById(id) {
+    return mapOfDevices.get(id);
 }
 
 function updateDevConnection(sourseId, targetId) {
     var sourceDev = mapOfDevices.get(sourseId);
-    console.log('mapOfDevices: ', mapOfDevices);
-    //sourceDev.addConnectedDev(targetId);
-    console.log('mapOfDevices: ', mapOfDevices);
-
+    sourceDev.connectedDevice.push(targetId);
+    console.log('update connected devices');
 }
 
 function addNewDeviceToArray(element) {
+    console.log('put device to map ');
     mapOfDevices.set(element.id, element);
 }
 
@@ -38,7 +111,18 @@ function getAllDevice() {
 }
 
 $(document).ready(function () {
-    $('.js-example-basic-multiple').select2();
+    $('.js-example-basic-single').select2();
+    $('.js-example-basic-multiple').select2({
+        tags: true,
+        tokenSeparators: [',', ' ']
+    });
+});
+
+UIkit.util.on(document, 'show', '.uk-tooltip.uk-active', function () {
+    $(".drag").mousedown(function () {
+        UIkit.tooltip(".uk-tooltip").hide();
+    });
+
 });
 
 /////////////////////////////////
@@ -142,7 +226,6 @@ $(document).ready(function () {
             var element;
             $("#canvas").droppable({
                 drop: function (ev, ui) {
-                    console.log(ui.helper.attr('id'));
                     if (ui.helper.attr('id').search(/drag[0-9]/) != -1) {
                         counter++;
                         element = $(ui.draggable).clone();
@@ -179,37 +262,78 @@ $(document).ready(function () {
             /////////////////////// ////////////////////////////////
             var elem = jsPlumb.getSelector(".window");
             var idOfClickedElem;
-            console.log('selector: ', elem);
 
             $(document).on('dblclick', '.window', function () {
                 var className = $(this).attr('class');
                 idOfClickedElem = $(this).attr('id');
 
-                var key = className.substring(
-                    className.indexOf('dragged'), className.indexOf('dragged')
-                    + 8).trim();
-                console.log('key:', key);
-                switch (key) {
-                    case "dragged1":
-                        UIkit.offcanvas("#wifi_router").show();
-                        break;
-                    case "dragged3":
-                        var modal = UIkit.offcanvas("#switch");
-                        modal.show();
-                        break;
-                    case "dragged4":
-                        // var modal = UIkit.offcanvas("#lan");
-                        // modal.show();
-                        break;
-                    case "dragged5":
-                        var modal = UIkit.offcanvas("#server");
-                        modal.show();
-                        break;
-                    case "dragged6":
-                        console.log('show modal');
-                        var modal = UIkit.offcanvas("#router");
-                        modal.show();
-                        break;
+                console.log('dblclick to element: ' + idOfClickedElem);
+                console.log('map: ', mapOfModalWindow);
+                if (mapOfModalWindow.has(idOfClickedElem)) {
+                    console.log('contains');
+                    var modalWindow = mapOfModalWindow.get(idOfClickedElem);
+                    var currentElement = getDeviceById(idOfClickedElem);
+                    console.log('currentElement: ', currentElement)
+
+                    switch (currentElement.type) {
+                        case "wifi":
+                            console.log('type = wifi')
+                            $(modalWindow).find('#wifi_interface').val(currentElement.interface).trigger('change');
+                            $(modalWindow).find('#wifi_routing').val(currentElement.routing).trigger('change');
+                            $(modalWindow).find('#wifi_acl').val(currentElement.acl).trigger('change');
+                            $(modalWindow).find('#wifi_nat').val(currentElement.nat).trigger('change');
+                            break;
+                        case "switch":
+                            console.log('case switch ')
+                            $(modalWindow).find('#switch_stp').val(currentElement.stp).trigger('change');
+
+                            break;
+                        case "router":
+                            console.log('case router ')
+                            $(modalWindow).find('#router_interface').val(currentElement.interface).trigger('change');
+                            $(modalWindow).find('#router_routing').val(currentElement.routing).trigger('change');
+                            $(modalWindow).find('#router_acl').val(currentElement.acl).trigger('change');
+                            $(modalWindow).find('#router_nat').val(currentElement.nat).trigger('change');
+                            console.log('vrrp: ', currentElement.vrrp[0].type);
+                            console.log('vrrp: ', currentElement.vrrp[0].addresses);
+                            $(modalWindow).find('#router_redundancy_role').val(currentElement.vrrp[0].type).trigger('change');
+                            $(modalWindow).find('#router_redundancy_other').val(currentElement.vrrp[0].addresses).trigger('change');
+                            break;
+                        case "lan":
+                            break;
+                        case "server":
+                            break;
+                    }
+
+                    UIkit.offcanvas($(modalWindow)).show();
+                } else {
+                    var key = className.substring(
+                        className.indexOf('dragged'), className.indexOf('dragged')
+                        + 8).trim();
+                    console.log('key:', key);
+                    switch (key) {
+                        case "dragged1":
+                            UIkit.offcanvas("#wifi_router").show();
+                            break;
+                        case "dragged3":
+                            var modal = UIkit.offcanvas("#switch");
+                            modal.show();
+                            break;
+                        case "dragged2":
+                            var modal = UIkit.offcanvas("#lan_device");
+                            modal.show();
+                            break;
+                        case "dragged5":
+                            var modal = UIkit.offcanvas("#server");
+                            modal.show();
+                            break;
+                        case "dragged6":
+                            console.log('show modal');
+                            var modal = UIkit.offcanvas("#router");
+                            modal.show();
+                            break;
+                    }
+
                 }
             });
 
@@ -225,10 +349,6 @@ $(document).ready(function () {
                 $('.max_speed_value').html($(this).val());
             });
 
-            function saveFirstModal(ev) {
-                console.log('ev', ev);
-            }
-
             ////ipv 4 and ipv6 ////
             $(function () {
                 $('.ip_address_v4').ipAddress();
@@ -236,51 +356,213 @@ $(document).ready(function () {
             });
 
             /////////////////Button save listener////////////////////////
-            $('#saveBtn_wifi').click(function () {
-                var wifiObject = new WiFi(
-                    idOfClickedElem,
-                    $('#modal1-name_1').val(),
-                    $('#modal1-mac-address_1').val(),
-                    $('#modal1-ipv4_1').val(),
-                    $('#modal1-ipv6_1').val()
-                );
+            $("#saveResultBtn").live('click', function () {
+                console.log('element: ', mapOfDevices);
+                console.log('element: ', getAllDevice());
+                // var file = new Blob([mapOfDevices], {type: 'text/plain'});
+                // if (window.navigator.msSaveOrOpenBlob) // IE10+
+                //     window.navigator.msSaveOrOpenBlob(file, 'result.json');
+                // else { // Others
+                //     var a = document.createElement("a"),
+                //         url = URL.createObjectURL(file);
+                //     a.href = url;
+                //     a.download = 'test.json';
+                //     document.body.appendChild(a);
+                //     a.click();
+                //     setTimeout(function() {
+                //         document.body.removeChild(a);
+                //         window.URL.revokeObjectURL(url);
+                //     }, 0);
+                // }
+                // var elem = $('#router').clone();
+                // elem.each(function () {
+                //     console.log($(this).attr('id'));
+                //     $(this).attr('id', 'newId');
+                // });
+                // UIkit.offcanvas(elem).show();
+                // var resultJSON = getAllDevice();
+                // console.log('resultJSON: ', resultJSON);
+                // $.ajax({
+                //     type: "POST",
+                //     contentType: "application/json;charset=utf-8",
+                //     url: 'http://127.0.0.1:8088/test/save',
+                //     data: resultJSON,
+                //     dataType: "json"
+                // });
+            });
+            /////////////////Button delete listener////////////////////////
 
-                addNewDeviceToArray(wifiObject);
-                UIkit.offcanvas("#modal-sections1").hide();
+            var elem = jsPlumb.getSelector(".window");
+            var idOfClicked;
+            $(document).on('dblclick', '.window', function () {
+                idOfClicked = '#' + $(this).attr('id');
             });
 
-            $("#saveResultBtn").click(function () {
-                var resultJSON = getAllDevice();
-                console.log('resultJSON: ', resultJSON);
-                $.ajax({
-                    type: "POST",
-                    contentType: "application/json;charset=utf-8",
-                    url: 'http://127.0.0.1:8088/test/save',
-                    data: resultJSON,
-                    dataType: "json"
-                });
+            $(".deleteBtn").live('click', function () {
+                console.log('remove elem: ' + idOfClicked);
+                console.log('remove elem: ', $('#switch_form')[0]);
+                instance.remove($(idOfClicked));
+                $('#switch_form').get(0).reset();
+            });
+
+            /////////////////////////save modal after hide ////////////////////
+
+            $('.modal_hide').on({
+                'hide.uk.modal': function () {
+                    console.log('save after hide:');
+                    var thisModal = $(this).clone();
+                    var oldId = thisModal.attr('id');
+                    var newPrefixToId = idOfClicked.substring(1, idOfClicked.length);
+                    var newId = oldId + '_' + newPrefixToId;
+                    console.log(newId);
+                    thisModal.attr('id', newId);
+                    $('body').append(thisModal);
+
+                    thisModal.find("span").remove();
+                    thisModal.find("select").select2();
+
+                    saveModalWidnow(newPrefixToId, thisModal);
+
+                    var name = thisModal.text().trim();
+                    var key = name.substring(0, name.indexOf(' '));
+                    console.log('key: ' + key);
+
+                    var newObject;
+                    switch (key.trim()) {
+                        case "Wi-Fi":
+                            console.log('save wifi');
+                            newObject = new WiFi('wifi', newPrefixToId,
+                                $('#wifi_name').val(),
+                                $('#wifi_interface').val(),
+                                $('#wifi_mac').val(),
+                                $('#wifi_ipv4').val(),
+                                $('#wifi_ipv6').val(),
+                                $('#wifi_routing').val(),
+                                $('#wifi_acl').val(),
+                                $('#wifi_dhcp').val(),
+                                $('#wifi_nat').val()
+                            );
+                            break;
+                        case "Switch":
+                            console.log('save Switch');
+                            newObject = new Switch('switch', newPrefixToId,
+                                $('#switch_name').val(),
+                                $('#switch_stp').val()
+                            );
+                            var arrayOfVlanGroup = document.getElementsByClassName('vlan-group');
+                            console.log(arrayOfVlanGroup);
+
+                            var test = $(this).getElementsByClassName('vlan-group');
+                            console.log(test);
+
+                            for (var i = 1; i < arrayOfVlanGroup.length; i++) {
+                                console.log($('#switch_vlan_'+i).val());
+
+                                // var VLAN = new VLAN(
+                                //     $('#switch_vlan_1').val()
+                                // $('#switch_vlanport_1').val()
+                                // )    ;
+                                //     newObject.vlan_group.push(VLAN);
+                            }
+
+                            break;
+                        case "Router":
+                            console.log('save router');
+                            newObject = new Router('router', newPrefixToId,
+                                $('#router_name').val(),
+                                $('#router_interface').val(),
+                                $('#router_mac').val(),
+                                $('#router_ipv4').val(),
+                                $('#router_ipv6').val(),
+                                $('#router_routing').val(),
+                                $('#router_acl').val(),
+                                $('#router_dhcp').val(),
+                                $('#router_nat').val()
+                            );
+                            var vrrpObj = new VRRP(
+                                $('#router_redundancy_role').val(),
+                                $('#router_redundancy_other').val()
+                            );
+                            newObject.vrrp.push(vrrpObj);
+                            break;
+                        case "LAN":
+                            console.log('save lan');
+                            newObject = new Lan('lan', newPrefixToId,
+                                $('#lan_name').val(),
+                                $('#lan_count').val()
+                            );
+                            break;
+                        case "Server":
+                            console.log('save server');
+                            newObject = new Server('server', newPrefixToId,
+                                $('#server_name').val(),
+                                $('#server_interface').val(),
+                                $('#server_mac').val(),
+                                $('#server_ipv4').val(),
+                                $('#server_ipv6').val(),
+                                $('#server_service').val(),
+                                $('#server_os').val()
+                            );
+                            break;
+                    }
+                    addNewDeviceToArray(newObject);
+
+                }
             });
 
 
             /////////////////////////multiselect //////////////////////////////
-            $("#wifi_nat_check").click(function (e) {
-                var statusNat = $(this).is(":checked");
-                if (statusNat) {
-                    $("#wifi_nat").prop('disabled', false);
-                } else {
-                    $("#wifi_nat").prop('disabled', true);
-                    $("#wifi_nat").val('');
-                }
-            })
+            $(".hide_wifi_nat").hide();
+            $(".hide_router_nat").hide();
+            $(".hide_router_redundancy").hide();
+
+            $("#wifi_nat_check").live('click', function (e) {
+                console.log('hide wifi nat');
+                $(".hide_wifi_nat").toggle();
+                $("#wifi_nat").prop('disabled', false);
+
+            });
+
+            $("#router_nat_check").live('click', function (e) {
+                console.log('hide router nat');
+                $(".hide_router_nat").toggle();
+                $("#router_nat").prop('disabled', false);
+
+            });
+
+            $("#router_redundancy_check").live('click', function (e) {
+                console.log('hide_router_redundancy');
+                $(".hide_router_redundancy").toggle();
+                $("#router_redundancy_role").prop('disabled', false);
+                $("#router_redundancy_other").prop('disabled', false);
+
+            });
 
 
             /////////////////////add vlan btn//////////////////////////////////
-            $('#add_vlan_btn').click(function () {
+            var counterOfCopyBlock = 1;
+            $('#add_vlan_btn').live('click', function () {
+                counterOfCopyBlock++;
+                var str = "<div id=\"vlan_goup" + counterOfCopyBlock + "\" class=\"background_groups uk-border-rounded\">\n" +
+                    "                            <select id=\"switch_vlan_" + counterOfCopyBlock + "\" class=\" vlan-group js-example-basic-single\" name=\"Routing\"\n" +
+                    "                                    style=\"width: 200px;margin-top: 15px !important; color: #000;\">\n" +
+                    "                                <option value=\"Select type\"></option>\n" +
+                    "                                <option value=\"RSTP\">RSTP</option>\n" +
+                    "                                <option value=\"SPB\">SPB</option>\n" +
+                    "                            </select>\n" +
+                    "                            <input id=\"switch_vlanport_" + counterOfCopyBlock + "\" class=\" vlan-group uk-input uk-form-width-medium uk-form-small\"\n" +
+                    "                                         type=\"text\" placeholder=\"Port\">\n" +
+                    "                        </div>";
 
+
+                $('#all_vlan > div').append(str);
+
+                $('#switch_vlan_' + counterOfCopyBlock).select2();
+                // $('.vlan_goup_clone').html('');
             });
             ///////////////////add connection button///////////////////////////
             var inst = $('#type-of-connection').remodal();
-            $('.addConnection').click(function () {
+            $('.addConnection').live('click', function () {
                 console.log('add connection', idOfClickedElem);
 
                 inst.open();
@@ -407,7 +689,7 @@ $(document).ready(function () {
                 scope: "LAN",
                 connectorStyle: {stroke: LanColor, strokeWidth: 6},
                 connector: ["Bezier", {curviness: 63}],
-                maxConnections: 2,
+                maxConnections: 10,
                 // beforeDetach: function (conn) {
                 //     return confirm("Detach connection?");
                 // },
@@ -427,7 +709,7 @@ $(document).ready(function () {
                 scope: "green",
                 connectorStyle: {stroke: color2, strokeWidth: 6},
                 connector: ["Bezier", {curviness: 63}],
-                maxConnections: 2,
+                maxConnections: 10,
                 isTarget: true,
                 dropOptions: exampleDropOptions
             };
