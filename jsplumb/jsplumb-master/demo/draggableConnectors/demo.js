@@ -48,7 +48,7 @@ function Lan(type, id, name, count) {
     this.connectedDevice = [];
 }
 
-function staticLan(name, ip) {
+function StaticLan(name, ip) {
     this.name = name;
     this.ip = ip;
 }
@@ -93,8 +93,12 @@ function getDeviceById(id) {
 
 function updateDevConnection(sourseId, targetId) {
     var sourceDev = mapOfDevices.get(sourseId);
-    sourceDev.connectedDevice.push(targetId);
+    if (!sourceDev.connectedDevice.includes(targetId)) {
+        sourceDev.connectedDevice.push(targetId);
+    }
     console.log('update connected devices');
+    console.log('update source: ' + sourseId);
+    console.log('update target: ' + targetId);
 }
 
 function addNewDeviceToArray(element) {
@@ -155,18 +159,18 @@ UIkit.util.on(document, 'show', '.uk-tooltip.uk-active', function () {
             }
             console.log("length: ", connections.length);
             if (connections.length > 0) {
-                var s = "<span><strong>Connections</strong></span><br/><br/><table><tr><th>Scope</th><th>Source</th><th>Target</th></tr>";
+                //var s = "<span><strong>Connections</strong></span><br/><br/><table><tr><th>Scope</th><th>Source</th><th>Target</th></tr>";
                 for (var j = 0; j < connections.length; j++) {
                     console.log('connectionsArray: ', connections);
 
                     ////update connection/////
                     updateDevConnection(connections[j].sourceId, connections[j].targetId);
 
-                    s = s + "<tr><td>" + connections[j].scope + "</td>" + "<td>"
-                        + connections[j].sourceId + "</td><td>"
-                        + connections[j].targetId + "</td></tr>";
+                    //s = s + "<tr><td>" + connections[j].scope + "</td>" + "<td>"
+                        //+ connections[j].sourceId + "</td><td>"
+                        //+ connections[j].targetId + "</td></tr>";
                 }
-                showConnectionInfo(s);
+                //showConnectionInfo(s);
             } else {
                 hideConnectionInfo();
             }
@@ -274,7 +278,8 @@ UIkit.util.on(document, 'show', '.uk-tooltip.uk-active', function () {
                     var modalWindow = mapOfModalWindow.get(idOfClickedElem);
                     var currentElement = getDeviceById(idOfClickedElem);
                     console.log('currentElement: ', currentElement)
-
+                    modalWindow.find("span").remove();
+                    modalWindow.find("select").select2();
                     switch (currentElement.type) {
                         case "wifi":
                             console.log('type = wifi')
@@ -359,36 +364,29 @@ UIkit.util.on(document, 'show', '.uk-tooltip.uk-active', function () {
             $("#saveResultBtn").live('click', function () {
                 console.log('element: ', mapOfDevices);
                 console.log('element: ', getAllDevice());
-                // var file = new Blob([mapOfDevices], {type: 'text/plain'});
-                // if (window.navigator.msSaveOrOpenBlob) // IE10+
-                //     window.navigator.msSaveOrOpenBlob(file, 'result.json');
-                // else { // Others
-                //     var a = document.createElement("a"),
-                //         url = URL.createObjectURL(file);
-                //     a.href = url;
-                //     a.download = 'test.json';
-                //     document.body.appendChild(a);
-                //     a.click();
-                //     setTimeout(function() {
-                //         document.body.removeChild(a);
-                //         window.URL.revokeObjectURL(url);
-                //     }, 0);
-                // }
-                // var elem = $('#router').clone();
-                // elem.each(function () {
-                //     console.log($(this).attr('id'));
-                //     $(this).attr('id', 'newId');
-                // });
-                // UIkit.offcanvas(elem).show();
-                // var resultJSON = getAllDevice();
-                // console.log('resultJSON: ', resultJSON);
-                // $.ajax({
-                //     type: "POST",
-                //     contentType: "application/json;charset=utf-8",
-                //     url: 'http://127.0.0.1:8088/test/save',
-                //     data: resultJSON,
-                //     dataType: "json"
-                // });
+                var resultJSON = getAllDevice();
+
+                var response = new XMLHttpRequest();
+                response.open('POST', 'http://127.0.0.1:8088/generate/save', false);
+                response.send(resultJSON);
+
+                if ($(document).ajaxSuccess()) {
+                    var file = new Blob([response.responseText], {type: 'text/xml'});
+                    if (window.navigator.msSaveOrOpenBlob) // IE10+
+                        window.navigator.msSaveOrOpenBlob(file, 'structure.json');
+                    else { // Others
+                        var a = document.createElement("a"),
+                            url = URL.createObjectURL(file);
+                        a.href = url;
+                        a.download = 'structure.json';
+                        document.body.appendChild(a);
+                        a.click();
+                        setTimeout(function () {
+                            document.body.removeChild(a);
+                            window.URL.revokeObjectURL(url);
+                        }, 0);
+                    }
+                }
             });
             /////////////////Button delete listener////////////////////////
 
@@ -418,9 +416,6 @@ UIkit.util.on(document, 'show', '.uk-tooltip.uk-active', function () {
                     thisModal.attr('id', newId);
                     $('body').append(thisModal);
 
-                    thisModal.find("span").remove();
-                    thisModal.find("select").select2();
-
                     saveModalWidnow(newPrefixToId, thisModal);
 
                     var name = thisModal.text().trim();
@@ -449,22 +444,19 @@ UIkit.util.on(document, 'show', '.uk-tooltip.uk-active', function () {
                                 $('#switch_name').val(),
                                 $('#switch_stp').val()
                             );
-                            var arrayOfVlanGroup = document.getElementsByClassName('vlan-group');
-                            console.log(arrayOfVlanGroup);
 
-                            var test = $(this).getElementsByClassName('vlan-group');
-                            console.log(test);
-
+                            var arrayOfVlanGroup = document.getElementById(thisModal.attr('id')).getElementsByClassName('vlan-group');
                             for (var i = 1; i < arrayOfVlanGroup.length; i++) {
-                                console.log($('#switch_vlan_'+i).val());
-
-                                // var VLAN = new VLAN(
-                                //     $('#switch_vlan_1').val()
-                                // $('#switch_vlanport_1').val()
-                                // )    ;
-                                //     newObject.vlan_group.push(VLAN);
+                                var type = $('#switch_vlan_' + i).val();
+                                var port = $('#switch_vlanport_' + i).val();
+                                if (type == null || port == null) {
+                                    continue;
+                                }
+                                console.log(type);
+                                console.log(port);
+                                var VLAN = new VlanGroup(type, port);
+                                newObject.vlan_group.push(VLAN);
                             }
-
                             break;
                         case "Router":
                             console.log('save router');
@@ -491,6 +483,18 @@ UIkit.util.on(document, 'show', '.uk-tooltip.uk-active', function () {
                                 $('#lan_name').val(),
                                 $('#lan_count').val()
                             );
+                            var arrayOfVStaticGroup = document.getElementById(thisModal.attr('id')).getElementsByClassName('static-group');
+                            for (var i = 1; i < arrayOfVStaticGroup.length; i++) {
+                                var name = $('#lan_static_name_' + i).val();
+                                var ip = $('#lan_static_ip_' + i).val();
+                                if (name == null || ip == null) {
+                                    continue;
+                                }
+                                console.log(name);
+                                console.log(ip);
+                                var staticGroup = new StaticLan(name, ip);
+                                newObject.staticAdresses.push(staticGroup);
+                            }
                             break;
                         case "Server":
                             console.log('save server');
@@ -559,6 +563,22 @@ UIkit.util.on(document, 'show', '.uk-tooltip.uk-active', function () {
 
                 $('#switch_vlan_' + counterOfCopyBlock).select2();
                 // $('.vlan_goup_clone').html('');
+            });
+
+            $('#add_static_btn').live('click', function () {
+                counterOfCopyBlock++;
+                var str = "<div id=\"static_goup" + counterOfCopyBlock + "\" class=\"background_groups uk-border-rounded\">\n" +
+                    "                            <input id=\"lan_static_name_" + counterOfCopyBlock + "\" + style=\"margin-top: 10px;\"\n" +
+                    "                                   class=\"uk-input uk-form-width-medium uk-form-small static-group\"\n" +
+                    "                                   type=\"text\" placeholder=\"Name\"></br>\n" +
+                    "                            <input id=\"lan_static_ip_" + counterOfCopyBlock + "\"\n" +
+                    "                                   class=\"uk-input uk-form-width-medium uk-form-small ip_address_v4 static-group\"\n" +
+                    "                                   type=\"text\" placeholder=\"Ip\">\n" +
+                    "                        </div>";
+
+
+                $('#all_static > div').append(str);
+                $('.ip_address_v4').ipAddress();
             });
             ///////////////////add connection button///////////////////////////
             var inst = $('#type-of-connection').remodal();

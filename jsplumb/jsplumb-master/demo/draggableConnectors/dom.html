@@ -130,14 +130,18 @@
                         Count of devices: <input type="number" id="lan_count" min="1" max="100" value="1"
                                                  class="uk-form-width-mini uk-form-small number-input">
                     </div>
-                    Static addresses:</br>
-
-                    <div id="static_goup" class="background_groups uk-border-rounded">
-                        <input id="lan_static_name" style="margin-top: 10px;"
-                               class="uk-input uk-form-width-medium uk-form-small"
-                               type="text" placeholder="Name"></br>
-                        <input id="lan_static_ip" class="uk-input uk-form-width-medium uk-form-small ip_address_v4"
-                               type="text" placeholder="Ip">
+                    <div id="all_static">
+                        Static addresses:</br>
+                        <div>
+                            <div id="static_goup" class="background_groups uk-border-rounded">
+                                <input id="lan_static_name_1" style="margin-top: 10px;"
+                                       class="uk-input uk-form-width-medium uk-form-small static-group"
+                                       type="text" placeholder="Name"></br>
+                                <input id="lan_static_ip_1"
+                                       class="uk-input uk-form-width-medium uk-form-small ip_address_v4 static-group"
+                                       type="text" placeholder="Ip">
+                            </div>
+                        </div>
                     </div>
                     <ul id="add_static_btn" class="uk-iconnav" style="margin-top: 5px">
                         <li><a onclick="" uk-icon="icon: plus-circle"></a></li>
@@ -254,7 +258,7 @@
                                      type="text" placeholder="Name">
                     </div>
                     Interface:<br>
-                    <select id="wifi_interface" class="js-example-basic-single" name="Interface"
+                    <select id="wifi_interface" class="js-example-basic-single " name="Interface"
                             style="width: 200px;margin-bottom: 7px; color: #000;">
                         <option value=""></option>
                         <option value="Ethernet">Ethernet</option>
